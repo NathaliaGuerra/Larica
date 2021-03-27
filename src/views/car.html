@@ -12,6 +12,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -83,7 +84,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col">cantidad</th>
+                <th scope="col">Cantidad</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Acciones</th>
@@ -94,21 +95,56 @@
                 <th scope="row">1</th>
                 <td>1Kg</td>
                 <td>$100</td>
-                <td>X</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
             </tr>
             <tr>
                 <th scope="row">1</th>
                 <td>1Kg</td>
                 <td>$100</td>
-                <td>X</td>            </tr>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>         
+           </tr>
             <tr>
                 <th scope="row">1</th>
                 <td>1Kg</td>
                 <td>$100</td>
-                <td>X</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
             </tr>
             </tbody>
         </table>
+
+        
+        <div class="d-flex flex-row-reverse">
+            <div class="col-md-6 px-0 d-flex justify-content-end">
+            <table class="table">
+            <tbody>
+            <tr>
+                <th scope="row">Sub-Total</th>
+                <td>$300</td>
+            </tr>
+            <tr>
+                <th scope="row">IVA</th>
+                <td>$30</td>
+            </tr>
+            <tr>
+                <th scope="row">Total</th>
+                <td>$330</td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
+         </div>
 
     </div><!-- /.container -->
 
