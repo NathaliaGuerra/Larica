@@ -62,7 +62,7 @@
             <div class="text-end">
                 <button type="button" class="btn btn-outline-light me-2">Acceso</button>
                 <button type="button" class="btn btn-outline-light me-2">Registrate</button>
-                <button type="button" class="btn btn-warning">Carrito</button>
+                <button type="button" class="btn btn-warning">Comprar</button>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
 
 <main>
 
-    <section class="p-4 p-md-5 mb-4 text-white bg-dark">
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
         <div class="container">
             <div class="col-md-10 px-0">
                 <h1 class="display-6 fst-italic">Carrito de Compra</h1>
@@ -84,48 +84,47 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th scope="col">Acciones</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
-                <th scope="col">Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <th scope="row">1</th>
-                <td>1Kg</td>
-                <td>$100</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
+                <th scope="row">1</th>
+                <td>1Kg</td>
+                <td>$100</td>
             </tr>
             <tr>
-                <th scope="row">1</th>
-                <td>1Kg</td>
-                <td>$100</td>
-                <td>
-                    <button type="button" class="btn btn-danger btn-sm">
-                        <i class="bi bi-trash"></i>
-                    </button>
-                </td>         
-           </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>1Kg</td>
-                <td>$100</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
+                <th scope="row">1</th>
+                <td>1Kg</td>
+                <td>$100</td>        
+           </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+                <th scope="row">1</th>
+                <td>1Kg</td>
+                <td>$100</td>
             </tr>
             </tbody>
         </table>
 
-        
-        <div class="d-flex flex-row-reverse">
+        <div class="d-flex flex-row-reverse car-total">
             <div class="col-md-6 px-0 d-flex justify-content-end">
             <table class="table">
             <tbody>
@@ -146,8 +145,16 @@
             </div>
          </div>
 
-    </div><!-- /.container -->
+         <div class="d-flex justify-content-end car-buttons">
+            <button type="reset" class="btn btn-outline-dark me-2">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Comprar</button>
+         </div>
+    
 
+    </div><!-- /.container -->
+   
+
+    
 </main>
 
 <!-- FOOTER -->
