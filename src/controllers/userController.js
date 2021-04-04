@@ -1,8 +1,8 @@
 module.exports = {
     login: function(req, res){
-        res.render('pages/login');
+        res.render('views/login');
     },
     register: function(req, res){
-        res.render('pages/register');
+        res.render('views/register');
     }
 }
