@@ -1,6 +1,6 @@
 module.exports = {
 
     index: function(req, res){
-        res.render('views/index');
+        res.render('pages/site/us');
     }
 }

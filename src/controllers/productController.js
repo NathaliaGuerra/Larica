@@ -1,11 +1,11 @@
 module.exports = {
     index: function(req, res){
-        res.render('views/products');
+        res.render('pages/products/products');
     },
     cart: function(req, res){
-        res.render('views/car');
+        res.render('pages/products/cart');
     },
     details: function(req, res){
-        res.render('views/product-details');
+        res.render('pages/products/product-details');
     }
 }

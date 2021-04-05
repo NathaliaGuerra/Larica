@@ -51,29 +51,6 @@ body {
     overflow: hidden;
 }
 
-.img-slide1 {
-    background: url(../images/indexImg/erwan-hesry-OlQ-NaEyVmQ-unsplash.jpg) no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
-    overflow: hidden;
-    opacity: 0.3;
-}
-
-.img-slide2 {
-    background: url(../images/indexImg/wesual-click-zgl4LvTL06c-unsplash.jpg) no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
-    overflow: hidden;
-    opacity: 0.3;
-}
-
-.img-slide3 {
-    background: url(../images/indexImg/michelle-tsang-VTt_Jn1LrOg-unsplash.jpg) no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
-    overflow: hidden;
-    opacity: 0.3;
-}
 
 .img-hero {
     background: url(../images/heroes/pexels-eva-elijas-6104222.jpg) no-repeat center center fixed;

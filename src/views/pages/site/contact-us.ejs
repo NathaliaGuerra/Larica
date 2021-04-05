@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head.ejs'); %>
+</head>
+
+
+    <%- include('../../partials/header.ejs'); %>
+
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Contacto</h1>
+            </div>
+        </div>
+    </section>
+
+
+ <!-- START THE FEATURETTES -->
+
+
+ <div class="row featurette py-5">
+   <div class="col-md-7">
+    <div class="py-5 container">
+        <div class="d-flex justify-content-center">
+            <h2 class="featurette-heading">Envianos tu mensaje</h2>
+        </div>
+
+        <div class="col-md-12 d-flex justify-content-center">
+            
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="name" class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mensaje</label>
+                    <textarea type="text" class="form-control" name="message" id=""></textarea>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+    </div><!-- /.container -->
+   </div>
+   <div class="col-md-5">
+    <img src="images/contact-map.jpg" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+   </div>
+ </div>
+
+
+ <hr class="featurette-divider">
+
+ <!-- /END THE FEATURETTES -->
+
+
+
+</main>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>

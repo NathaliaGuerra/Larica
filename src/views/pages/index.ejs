@@ -1,10 +1,16 @@
-<%- include('../partials/head.ejs'); %>
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+</head>
 
-<%- include('../partials/header.ejs'); %>
 
+    <%- include('../partials/header.ejs'); %>
+
+<body>
 
 <main>
-
+    <link href="/css/carrusel.css" rel="stylesheet">
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -14,7 +20,12 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> --> 
-             <img src="" class="img-slide1" alt="Helados en mostrador">
+                <img class="bd-placeholder-img" 
+                width="100%"
+                height="680px"
+                src="/images/indexImg/erwan-hesry-OlQ-NaEyVmQ-unsplash.jpg" 
+                alt="Helados en mostrador" />
+
             
              <div class="container">
                     <div class="carousel-caption text-start">
@@ -26,8 +37,12 @@
             </div>
             <div class="carousel-item">
                 <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> -->
-                <img src="" class="img-slide2" alt="">
-            
+                <img class="bd-placeholder-img" 
+                width="100%"
+                height="680px"
+                src="/images/indexImg/wesual-click-zgl4LvTL06c-unsplash.jpg" 
+                alt="Helados en mostrador" />
+              
              <div class="container">
                     <div class="carousel-caption">
                         <h1>Another example headline.</h1>
@@ -38,7 +53,12 @@
             </div>
             <div class="carousel-item">
                 <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> -->
-                <img src="" class="img-slide3" alt="">
+                <img class="bd-placeholder-img" 
+                    width="100%"
+                    height="680px"
+                    src="/images/indexImg/michelle-tsang-VTt_Jn1LrOg-unsplash.jpg" 
+                    alt="Helados en mostrador" />
+
                 <div class="container">
                     <div class="carousel-caption text-end">
                         <h1>One more for good measure.</h1>
@@ -78,34 +98,34 @@
             </div>
 
             <div class="col-lg-4">
-                <img src="../../public/images/indexImg/chcolates.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                <img src="images/indexImg/chcolates.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
                 <h2>Chocolates</h2>
             </div><!-- /.col-lg-4 -->
 
             <div class="col-lg-4">
-                <img src="../../public/images/ProductsImg/dulcedeleche-connuez.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                <img src="images/ProductsImg/dulcedeleche-connuez.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
                 <h2>Dulce de Leche</h2>
             </div><!-- /.col-lg-4 -->
 
             <div class="col-lg-4">
-                <img src="../../public/images/ProductsImg/crema_rusa.png" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                <img src="images/ProductsImg/crema_rusa.png" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
                 <h2>Cremas</h2>
             </div><!-- /.col-lg-4 -->
 
         </div><!-- /.row -->
         <div class="row">
             <div class="col-lg-4">
-                <img src="../../public/images/indexImg/fresa super expuesta.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                <img src="images/indexImg/fresa super expuesta.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
                 <h2>Frutales</h2>
             </div><!-- /.col-lg-4 -->
 
             <div class="col-lg-4">
-                <img src="../../public/images/indexImg/Green-Tea-Ice-Cream-1-of-1.webp" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                <img src="images/indexImg/Green-Tea-Ice-Cream-1-of-1.webp" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
                 <h2>Veganos</h2>
             </div><!-- /.col-lg-4 -->
 
             <div class="col-lg-4">
-                <img src="../../public/images/indexImg/cookies-and-cream-ice-cream-1.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                <img src="images/indexImg/cookies-and-cream-ice-cream-1.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
                 <h2>Especiales</h2>
             </div><!-- /.col-lg-4 -->
 
@@ -115,7 +135,7 @@
 
 </main>
 
-
 <%- include('../partials/footer.ejs') %>
 
-<%- include('../partials/clousure.ejs') %>
+</body>
+</html>
