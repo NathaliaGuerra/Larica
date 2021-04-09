@@ -9,12 +9,14 @@ const contactRouter = require('./contactRoutes');
 const storeRouter = require('./storeRoutes');
 const usRouter = require('./usRoutes');
 
+
 router.use('/', homeRouter);
 router.use('/login', loginRouter);
 router.use('/register', registerRouter); 
 router.use('/products', productsRouter);      
 router.use('/contact-us', contactRouter);
 router.use('/store', storeRouter);
-router.use('/us', usRouter);                
+router.use('/us', usRouter);   
+router.use('/details',productsRouter);             
 
 module.exports = router;
