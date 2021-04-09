@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/NathaliaGuerra/Larica#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
