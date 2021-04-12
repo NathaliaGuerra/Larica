@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head.ejs'); %>
+</head>
+    <%- include('../../partials/header.ejs'); %>
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Tienda</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-5 container">
+        <div class="col-md-12">
+            <div class="row">
+                
+                <!-- ice cream sizes and categories -->
+                <div class="col-8">
+                    
+                    <!-- sizes -->
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="d-flex justify-content-center categories-title">
+                                <h2>Tamaños</h2>
+                            </div>
+                
+                            <div class="col-lg-4">
+                                <div class="form-check">
+                                    <img src="/images/size-250gr.jpg" alt="250gr" class="bd-placeholder-img" width="212" height="170">
+                                    <div class="d-flex justify-content-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            1/4 kg.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- /.col-lg-4 -->
+
+                            <div class="col-lg-4">
+                                <div class="form-check">
+                                    <img src="/images/size-500gr.jpg" alt="500gr" class="bd-placeholder-img" width="212" height="170">
+                                    <div class="d-flex justify-content-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            1/2 kg.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- /.col-lg-4 -->
+
+                            <div class="col-lg-4">
+                                <div class="form-check">
+                                    <img src="/images/size-1kg.jpg" alt="1kg" class="bd-placeholder-img" width="212" height="170">
+                                    <div class="d-flex justify-content-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            1 kg.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- /.col-lg-4 -->
+                
+                        </div><!-- /.row -->
+                        
+                    </div><!-- end sizes -->
+
+                    <!-- categories -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="d-flex justify-content-center categories-title">
+                                <h2>Sabores</h2>
+                            </div>
+                            <div class="col-lg-4 py-2">
+                                <h5>Chocolates</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Chocolate 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Chocolate 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Chocolate 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 py-2">
+                                <h5>Dulce de Leche</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Dulce de Leche 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Dulce de Leche 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Dulce de Leche 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 py-2">
+                                <h5>Cremas</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Crema 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Crema 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Crema 3
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 py-2">
+                                <h5>Frutales</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Frutal 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Frutal 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Frutal 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 py-2">
+                                <h5>Veganos</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Vegano 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Vegano 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Vegano 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 py-2">
+                                <h5>Especiales</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Especial 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Especial 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Especial 3
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <!-- end categories -->
+
+                    <div class="d-grid gap-2 col-6 mx-auto py-4">
+                        <button class="btn btn-primary" type="button">Agregar</button>
+                      </div>
+                </div> <!-- ice cream sizes and categories -->
+
+                <!-- cart -->
+                <div class="col-4">
+                    <div class="card">
+                        <table class="table">
+                            <tr>
+                                <td><img src="/images/contact-map.jpg" alt="" width="32px" height="32px"></td>
+                                <td><p><small>Descripcion del producto</small></p></td>
+                                <td><p>650</p></td>
+                            </tr>
+                            <tr>
+                                <td><img src="/images/contact-map.jpg" alt="" width="32px" height="32px"></td>
+                                <td><p><small>Descripcion del producto</small></p></td>
+                                <td><p>650</p></td>
+                            </tr>
+                        </table>
+                        <div class="card-body">
+                            <div class="card-subtitle mb-2 text-muted">
+                                <h6>Subtotal</h6>
+                            </div>
+                            <h5 class="card-title">Total</h5>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button">Comprar</button>
+                    </div>
+                </div> <!-- end cart -->
+            </div>
+        </div>
+    </div><!-- /.container -->
+</main>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>

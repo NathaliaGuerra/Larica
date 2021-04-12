@@ -7,7 +7,6 @@ module.exports = {
         res.render('pages/users/login');
     },
     
-
     userCheck: async function(req, res){
         let user = await User.findOne({
             where: {
@@ -26,10 +25,10 @@ module.exports = {
 
     },
 
-
     register: function(req, res){
         res.render('pages/users/register');
     },
+
     registerStore: async function(req, res){
         let errorRegister = validationResult(req);
        if(errorRegister.isEmpty()){
@@ -48,5 +47,24 @@ module.exports = {
        }else{
         res.render('pages/users/login', {errorRegister: errorRegister.mapped()});
        }
-    }
+    },
+
+    profile: function(req, res){
+        res.render('pages/users/profile');
+    },
+
+    editProfile: async function(req, res){
+        await User.update({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            password: req.body.password,
+            avatar: 'http://'
+        }).then(()=>{
+            res.redirect('/login');
+        }).catch((error)=>{
+            console.log(error.message);
+        })
+    },
+
+    
 }

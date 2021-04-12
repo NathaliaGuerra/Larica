@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head.ejs'); %>
+</head>
+
+
+    <%- include('../../partials/header.ejs'); %>
+
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Mi Perfil</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <div class="row featurette">
+            <form method="PUT" action="/user"></form>
+                <div class="col-md-7 order-md-2">
+                    <h3 class="featurette-heading">Edita tu perfil.</h3>
+                    
+                        <div class="mb-3 col-md-8">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input name="firstName" type="name" class="form-control" id="name">
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="last-name" class="form-label">Apellido</label>
+                            <input name="lastName" type="last-name" class="form-control" id="last-name">
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <div class="d-flex justify-content-center">
+                        <img src="/images/default_user.png" alt="user" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200" height="200">
+                        
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="mb-3 col-md-6">
+                            <label for="formFileSm" class="form-label d-flex justify-content-center">Avatar</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="row order-md-3">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    
+
+</main>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>
