@@ -4,17 +4,9 @@ const faker = require('faker');
 
 const products = [...Array(100)].map((product) =>(
     {
+        categoryId: faker.random.arrayElement([1,2,3,4,5,6]),
         name: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
-        category: faker.random.arrayElement([
-          'Chocolates',
-          'Dulce de Leche',
-          'Cremas',
-          'Frutales',
-          'Veganos',
-          'Especiales'
-        ]),
-        price: faker.commerce.price(),
         photo: null,
         status: faker.random.arrayElement([ true, false ]),
         createdAt: new Date(),
