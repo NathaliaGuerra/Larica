@@ -15,7 +15,7 @@ module.exports = {
                 let response = {
                     meta: {
                         status: 200,
-                        url: "/api/users",
+                        url: PATH_API_USERS,
                         total: users.length
                     },
                     data: users

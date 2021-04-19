@@ -13,6 +13,7 @@ const userRouter = require('./userRoutes');
 
 // API Require files
 const userApiRouter = require('./api/userApiRoutes');
+const productApiRouter = require('./api/productApiRoutes');
 
 // App routes
 router.use('/', homeRouter);
@@ -27,5 +28,6 @@ router.use('/users',userRouter);
 
 // API routes
 router.use('/api/users', userApiRouter);
+router.use('/api/products', productApiRouter);
 
 module.exports = router;
