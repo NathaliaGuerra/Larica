@@ -1,9 +1,20 @@
 const express = require('express');
-
-const userController = require('../controllers/userController');
-
 const router = express.Router();
 
-router.get('/', userController.login);
+const validationResult = require('../middlewares/validationResult');
+const { userLoginValidationRules } = require('../validations/userLoginValidationRules');
+const loginController = require('../controllers/loginController');
+
+router.get(
+    '/',
+    loginController.login
+);
+
+router.post(
+    '/',
+    userLoginValidationRules(),
+    validationResult,
+    async (req, res) => { loginController.checkUser(req, res) }
+);
 
 module.exports = router;

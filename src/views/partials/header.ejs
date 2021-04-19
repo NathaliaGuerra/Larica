@@ -15,9 +15,10 @@
                 </ul>
     
                 <div class="text-end">
-                    <a href="/login" type="button" class="btn btn-outline-light me-2">Acceso</a>
-                    <a href="/register" type="button" class="btn btn-outline-light me-2">Registrate</a>
-                    <a href="/store/cart" type="button" class="btn btn-warning"><i class="bi bi-cart4"></i></a>
+                    <% if(typeof userAuthenticated == "undefined") { %>
+                        <a href="/login" type="button" class="btn btn-outline-light me-2">Acceso</a>
+                        <a href="/users/register" type="button" class="btn btn-outline-light me-2">Registrate</a>
+                    <% } else  { %>
                     <img 
                         src="/images/default_user.png" 
                         width="42" 
@@ -30,14 +31,17 @@
                         aria-expanded="false"
                         />
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/products">Productos</a></li>
                             <li><a class="dropdown-item" 
                                 href="#" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#exampleModal">Mi Perfil</a></li>
                             <li><a class="dropdown-item" href="#">Ver mi compra</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
                         </ul>
+                    <% } %>
+                    <a href="/store/cart" type="button" class="btn btn-warning"><i class="bi bi-cart4"></i></a>
                 </div>
             </div>
         </div>
@@ -59,9 +63,11 @@
                             
                         </div><!-- /.col-lg-6 -->
                         <div class="col-lg-6">
-                            <h3>Nathalia Guerra</h3>
-                            <h6 class="text-muted">nathy@war.com</h6>
-                            <h6 class="text-muted">Registered</h6>
+                            <% if(typeof userAuthenticated != "undefined") { %>
+                            <h3><%= userAuthenticated.firstName %> <%= userAuthenticated.lastName %></h3>
+                            <h6 class="text-muted"><%= userAuthenticated.email %></h6>
+                            <h6 class="text-muted"><%= userAuthenticated.role %></h6>
+                            <% } %>
                         </div><!-- /.col-lg-6 -->
                     </div>
                 </div>
@@ -69,7 +75,9 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <a href="/user/profile" type="button" class="btn btn-primary">Editar</a>
+            <% if(typeof userAuthenticated != "undefined") { %>
+                <a href="/users/edit/<%= userAuthenticated.id %>" type="button" class="btn btn-primary">Editar</a>
+            <% } %>
             </div>
         </div>
         </div>

@@ -22,26 +22,62 @@
     <div class="py-5 container">
 
         <div class="col-md-12 d-flex justify-content-center">
-            <form method="POST" action="/register">
+            <form action="/users/register" method="POST">
+                
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre</label>
-                    <input name="firstName" type="name" class="form-control" id="name">
+                    <input name="firstName" 
+                           type="text" 
+                           value="<%= (typeof old != 'undefined' && !firstName) ? old.firstName : '' %>"
+                           class="form-control" 
+                           placeholder="John"
+                           id="firstName"
+                           required>
+                    <small style="color: red;"><%= (typeof error != 'undefined' && error.firstName) ? error.firstName.msg : '' %></small>
                 </div>
+
                 <div class="mb-3">
                     <label for="last-name" class="form-label">Apellido</label>
-                    <input name="lastName" type="last-name" class="form-control" id="last-name">
+                    <input name="lastName" 
+                           type="text"
+                           value="<%= (typeof old != 'undefined' && !errors.lastName) ? old.lastName : '' %>" 
+                           class="form-control" 
+                           placeholder="War"
+                           id="lastName"
+                           required>
+                    <small style="color: red;"><%= (typeof error != 'undefined' && error.lastName) ? error.lastName.msg : '' %></small>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input name="email" 
+                           type="email"
+                           value="<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>"  
+                           class="form-control" 
+                           placeholder="name@example.com"
+                           id="email"
+                           required>
+                    <small style="color: red;"><%= (typeof error != 'undefined' && error.email) ? error.email.msg : '' %></small>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                    <input name="password" 
+                           type="password" 
+                           class="form-control"
+                           id="password"
+                           required>
+                    <small style="color: red;"><%= (typeof error != 'undefined' && error.password) ? error.password.msg : '' %></small>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Re-Password</label>
-                    <input name="rePassword" type="password" class="form-control" id="exampleInputPassword1">
+                    <input name="passwordConfirmation" 
+                           type="password" 
+                           class="form-control"
+                           id="passwordConfirmation"
+                           required>
+                    <small style="color: red;"><%= (typeof error != 'undefined' && error.passwordConfirmation) ? error.passwordConfirmation.msg : '' %></small>
                 </div>
 
                 <div class="d-flex justify-content-center">
