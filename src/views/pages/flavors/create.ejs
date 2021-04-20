@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head.ejs'); %>
+</head>
+
+
+    <%- include('../../partials/header.ejs'); %>
+
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Crear Sabor de Helado</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="container categories">
+
+        <div class="row py-5">
+            <div class="col-md-4 offset-md-4"">
+                 <form action="/flavors/create" method="POST">
+ 
+                     <div class="mb-3">
+                         <label for="name" class="form-label">Nombre</label>
+                         <input name="name" 
+                                type="text" 
+                                value="<%= (typeof old != 'undefined' && !name) ? old.name : '' %>"
+                                class="form-control" 
+                                placeholder=""
+                                id="name"
+                                required>
+                         <small style="color: red;"><%= (typeof error != 'undefined' && error.name) ? error.name.msg : '' %></small>
+                     </div>
+
+                     <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <input name="description" 
+                               type="text" 
+                               value="<%= (typeof old != 'undefined' && !description) ? old.description : '' %>"
+                               class="form-control" 
+                               placeholder=""
+                               id="description"
+                               required>
+                        <small style="color: red;"><%= (typeof error != 'undefined' && error.description) ? error.description.msg : '' %></small>
+                    </div>
+ 
+                     <div class="mb-3">
+                         <label for="status" class="form-label">Status</label>
+                             <select name="status" class="form-select" aria-label="Default select example">
+                             <option value="">Seleccione</option>
+                             <option value="1">Active</option>
+                             <option value="0">Not Active</option>
+                         </select>
+                         <small style="color: red;"><%= (typeof error != 'undefined' && error.status) ? error.status.msg : '' %></small>
+                     </div>
+ 
+                     <div class="mb-3 card">
+                         <label for="photo" class="form-label">Foto</label>
+                         <input name="photo" type="file" class="form-control-file" id="photo">
+                         <small style="color: red;"><%= (typeof error != 'undefined' && error.photo) ? error.photo.msg : '' %></small>
+                     </div>
+ 
+                     <div class="mb-3">
+                         <button type="submit" class="btn btn-primary mb-3">Crear Sabor</button>
+                     </div>
+ 
+                 </form>
+             </div>
+         </div>
+
+    </div><!-- /.container -->
+
+</main>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>

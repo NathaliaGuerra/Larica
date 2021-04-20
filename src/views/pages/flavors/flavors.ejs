@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head.ejs'); %>
+</head>
+
+
+    <%- include('../../partials/header.ejs'); %>
+
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Sabores de Helados</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container categories">
+
+        <div class="row">
+            <div class="col-md-3 py-4">
+                <a href="/flavors/create" class="btn btn-primary">Crear Nuevo Sabor</a>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"></th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for( let i = 0; i < flavors.length; i++ ) { %>
+                    <tr>
+                        <th scope="row"><%= flavors[i].id %></th>
+                        <td>
+                            <img src="https://via.placeholder.com/60" alt="" class="bd-placeholder-img" width="60" height="60">
+                        </td>
+                        <td><%= flavors[i].name %></td>
+                        <td><%= flavors[i].status %></td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="/flavors/edit/<%= flavors[i].id %>">Editar</a>
+                            
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#flavorModal">
+                                Borrar
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="flavorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Borrar Sabor</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Estas seguro que quieres borrar este sabor?</h5>
+                                <p><%= flavors[i].name %></p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <form action="/flavors/delete/<%= flavors[i].id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Borrar</button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div> <!-- end Delete Modal -->
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+    </div><!-- /.container -->
+
+</main>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>

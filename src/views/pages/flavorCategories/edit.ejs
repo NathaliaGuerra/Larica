@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head.ejs'); %>
+</head>
+
+
+    <%- include('../../partials/header.ejs'); %>
+
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Editar Categoría de Helado</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="container categories">
+
+        <div class="row py-5">
+            <div class="col-md-4 offset-md-4"">
+                <% if(typeof errors != "undefined") {%>
+                    <ul>
+                        <% for(let i=0; i < errors.length; i++) { %>
+                            <li><%= errors[i].msg%></li>
+                        <% } %>
+                    </ul>
+                <% }%>
+                <form action="/flavorCategories/edit/<%= category.id %>?_method=PUT" method="POST" >
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input name="name" 
+                               type="text" 
+                               value="<%= category.name %>"
+                               class="form-control" 
+                               placeholder="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                            <select name="status" class="form-select" aria-label="Default select example">
+                            <option value="1" <%= category.status === 1 ? 'selected' : '' %>>Activo</option>
+                            <option value="0" <%= category.status === 0 ? 'selected' : '' %>>No Activo</option>
+                        </select>
+                        <small style="color: red;"><%= (typeof error != 'undefined' && error.status) ? error.status.msg : '' %></small>
+                    </div>
+
+                    <div class="mb-3 card">
+                        <label for="photo" class="form-label">Foto</label>
+                        
+                        <div class="mb-3">
+                            <img src="<%= category.photo %>" alt="<%= category.name %>" width="200" height="200">
+                        </div>
+                        <input name="photo" type="file" class="form-control-file" id="photo">
+                        <small style="color: red;"><%= (typeof error != 'undefined' && error.photo) ? error.photo.msg : '' %></small>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary mb-3">Actualizar Categoría</button>
+                    </div>
+
+                </form>
+            </div>
+         </div>
+
+    </div><!-- /.container -->
+
+</main>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>
