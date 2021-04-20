@@ -2,17 +2,35 @@
 
 const faker = require('faker');
 
-const products = [...Array(100)].map((product) =>(
+const products = [
     {
-        categoryId: faker.random.arrayElement([1,2,3,4,5,6]),
-        name: faker.commerce.productName(),
-        description: faker.commerce.productDescription(),
-        photo: null,
-        status: faker.random.arrayElement([ true, false ]),
+        name: '1/4 kg.',
+        price: 350,
+        flavorLimit: 3,
+        photo: faker.commerce.photo,
+        status: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: '1/2 kg.',
+        price: 600,
+        flavorLimit: 5,
+        photo: faker.commerce.photo,
+        status: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        name: '1 kg.',
+        price: 1100,
+        flavorLimit: 7,
+        photo: faker.commerce.photo,
+        status: true,
         createdAt: new Date(),
         updatedAt: new Date()
     }
-))
+];
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {

@@ -1,26 +1,38 @@
 'use strict';
 
-const productSizes = [
+const flavorCategories = [
   {
-    name: '1/4 kg.',
-    price: 350,
-    flavorLimit: 2,
+    name: 'Chocolates',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: '1/2 kg.',
-    price: 600,
-    flavorLimit: 4,
+    name: 'Dulce de Leche',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: '1 kg.',
-    price: 1100,
-    flavorLimit: 6,
+    name: 'Cremas',
+    status: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: 'Frutales',
+    status: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: 'Veganos',
+    status: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: 'Especiales',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -38,7 +50,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-      await queryInterface.bulkInsert('ProductSizes', productSizes, {});
+      await queryInterface.bulkInsert('FlavorCategories', flavorCategories, {});  
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -48,6 +60,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-      await queryInterface.bulkDelete('ProductSizes', null, {});
+     await queryInterface.bulkDelete('FlavorCategories', null, {}); 
   }
 };

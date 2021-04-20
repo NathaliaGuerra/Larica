@@ -6,7 +6,7 @@ module.exports = {
 
     index: async (req, res) => {
         await db.Product.findAll({
-            attributes: ["id", 'name', 'description', "category", "price"]
+            attributes: ["id", 'name', 'price', "flavorLimit"]
             }).then(function (products) {
                 for (let i = 0; i < products.length; i++) {
                     products[i].setDataValue(ENDPOINT, `${PATH_API_PRODUCTS}${products[i].id}`)

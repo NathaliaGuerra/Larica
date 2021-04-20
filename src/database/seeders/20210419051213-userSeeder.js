@@ -3,7 +3,7 @@
 const faker = require('faker');
 const bcrypt = require('bcrypt');
 
-const users = [...Array(100)].map((user) =>(
+const users = [...Array(50)].map((user) =>(
     {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
