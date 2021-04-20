@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const flavorController = require('../controllers/flavorController');
+const { validationResult } = require('express-validator');
+const flavorCategoryAdminController = require('../../controllers/admin/flavorCategoryAdminController');
 
 router.get(
     '/',
-    flavorController.index
+    flavorCategoryAdminController.index
 );
 
 router.get(
     '/create',
-    flavorController.create
+    flavorCategoryAdminController.create
 );
 
 router.post(
@@ -22,20 +23,20 @@ router.post(
             errors.array().map((err) => {
                 error[err.param] = { msg: err.msg };
             });
-            return res.render('pages/flavors/create', { error });
+            return res.render('pages/admin/flavorCategories/create', { error });
         }
-        flavorController.store(req, res) 
+        flavorCategoryAdminController.store(req, res) 
     }
 );
 
 router.get(
     '/:id',
-    async (req, res) => { flavorController.show(req, res) }
+    async (req, res) => { flavorCategoryAdminController.show(req, res) }
 );
 
 router.get(
     '/edit/:id',
-    async (req, res) => { flavorController.edit(req, res) }
+    async (req, res) => { flavorCategoryAdminController.edit(req, res) }
 );
 
 router.put(
@@ -49,15 +50,15 @@ router.put(
         //     errors.array().map((err) => {
         //         error[err.param] = { msg: err.msg };
         //     });
-        //     return res.render(`pages/flavors/edit/${req.body.id}`, { error });
+        //     return res.render(`pages/admin/flavorCategories/edit/${req.body.id}`, { error });
         // }
-        flavorController.update(req, res)    
+        flavorCategoryAdminController.update(req, res)    
     }
 );
 
 router.delete(
     '/delete/:id',
-    (req, res) => { flavorController.destroy(req, res) }
+    (req, res) => { flavorCategoryAdminController.destroy(req, res) }
 );
 
 module.exports = router;

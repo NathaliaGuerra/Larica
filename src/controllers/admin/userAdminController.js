@@ -1,4 +1,4 @@
-const db = require('../database/models/index');
+const db = require('../../database/models/index');
 const bcrypt = require('bcrypt');
 const REGISTERED_USER = 'Registered';
 
@@ -6,17 +6,15 @@ module.exports = {
 
     index: async (req, res) => {
         let users = await db.User.findAll();
-
         if(req.session.user){
             var userAuth = req.session.user;
             console.log(userAuth);
         }
-        
-        res.render('pages/users/users', { users, userAuth });
+        res.render('pages/admin/users/users', { users, userAuth });
     },
 
-    register: (req, res) => {
-        res.render('pages/users/register');
+    create: (req, res) => {
+        res.render('pages/admin/users/create');
     },
 
     store: async (req, res) => {
@@ -26,10 +24,10 @@ module.exports = {
             email: req.body.email,
             password:  bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null),
             role: REGISTERED_USER
-        }).then(() => {
-            res.render('pages/login', { message: 'The user was created! Now you can try login.' });
+        }).then((user) => {
+            res.redirect('/admin/users');
         }).catch((error) => {
-            res.render('pages/users/register', { errors: error.message });
+            res.render('pages/admin/users/create', { errors: error.message });
         });
     },
 
@@ -38,9 +36,9 @@ module.exports = {
             where: { id: req.params.id }
         }).then((user) => {
             if(user) {
-                res.render('pages/users/profile', {user: user});
+                res.render('pages/admin/users/profile', {user: user});
             } else {
-                res.render('pages/users', { errors: 'User does not exist' });
+                res.render('pages/admin/users', { errors: 'User does not exist' });
             }
         });
     },
@@ -50,9 +48,9 @@ module.exports = {
             where: { id: req.params.id }
         }).then((user) => {
             if(user) {
-                res.render('pages/users/edit', {user});
+                res.render('pages/admin/users/edit', {user});
             } else {
-                res.render('pages/users', { error: 'User does not exist' });
+                res.render('pages/admin/users', { error: 'User does not exist' });
             }
         });
     },
@@ -101,9 +99,9 @@ module.exports = {
               id: req.params.id
             }
         }).then(() => {
-            res.redirect('/users');
+            res.redirect('/admin/users');
         }).catch((error) => {
-            res.render('/users', {error: error});
+            res.render('pages/admin/users', {error: error});
         });
     }
 

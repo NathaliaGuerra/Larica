@@ -11,8 +11,12 @@ const contactRouter = require('./contactRoutes');
 const storeRouter = require('./storeRoutes');
 const usRouter = require('./usRoutes');
 const userRouter = require('./userRoutes');
-const flavorCategoryRouter = require('./flavorCategoryRoutes');
-const flavorRouter = require('./flavorRoutes');
+
+// App Admin Routes Require files
+const userAdminRouter = require('./admin/userAdminRoutes');
+const productsAdminRouter = require('./admin/productAdminRoutes');
+const flavorCategoryAdminRouter = require('./admin/flavorCategoryAdminRoutes');
+const flavorAdminRouter = require('./admin/flavorAdminRoutes');
 
 // API Require files
 const userApiRouter = require('./api/userApiRoutes');
@@ -28,10 +32,14 @@ router.use('/products', productsRouter);
 router.use('/contact-us', contactRouter);
 router.use('/store', storeRouter);
 router.use('/us', usRouter);   
+router.use('/users', userRouter);
 router.use('/details',productsRouter);
-router.use('/users',userRouter);
-router.use('/flavorCategories', flavorCategoryRouter); 
-router.use('/flavors', flavorRouter);  
+
+// App Admin Routes
+router.use('/admin/users',userAdminRouter);
+router.use('/admin/products', productsAdminRouter);
+router.use('/admin/flavorCategories', flavorCategoryAdminRouter); 
+router.use('/admin/flavors', flavorAdminRouter);  
 
 // API routes
 router.use('/api/users', userApiRouter);

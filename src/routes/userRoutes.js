@@ -21,7 +21,7 @@ router.get(
 router.post(
     '/register',
     userRegisterValidationRules(),
-    // (req, res) => { userController.store(req, res) }
+    // (req, res) => { userAdminController.store(req, res) }
     
     async (req, res) => { 
         let errors = validationResult(req);

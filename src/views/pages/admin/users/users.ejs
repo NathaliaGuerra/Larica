@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head.ejs'); %>
+</head>
+
+
+    <%- include('../../../partials/header.ejs'); %>
+
+<body>
+<main>
+
+    <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h1 class="display-6 fst-italic">Usuarios</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="row d-flex justify-content-center">
+        <% if(typeof message != "undefined") { %>
+            <div class="alert alert-success d-flex justify-content-center" role="alert">
+                <%= message %>
+              </div>
+        <% } %>
+    </div>
+
+
+    <div class="container categories">
+
+        <div class="row">
+            <div class="col-md-3 py-4">
+                <a href="/admin/users/create" class="btn btn-primary">Nuevo Usuario</a>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"></th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">correo</th>
+                        <th scope="col">Role</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for( let i = 0; i < users.length; i++ ) { %>
+                    <tr>
+                        <th scope="row"><%= users[i].id %></th>
+                        <td>
+                            <img src="https://via.placeholder.com/60" alt="" class="bd-placeholder-img" width="60" height="60">
+                        </td>
+                        <td><%= users[i].firstName %> <%= users[i].lastName %></td>
+                        <td><%= users[i].email %></td>
+                        <td><%= users[i].role %></td>
+                        <td>
+                            <!-- <a class="btn btn-sm btn-warning" href="/admin/users/<%= users[i].id %>">Ver</a> -->
+                            <a class="btn btn-sm btn-primary" href="/admin/users/edit/<%= users[i].id %>">Editar</a>
+                            
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#userDeleteModal<%= users[i].id %>">
+                                Borrar
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="userDeleteModal<%= users[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Borrar Usuario</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="py-4">
+                                    <h6 class=" d-flex justify-content-center">¿Estas seguro que quieres borrar este usuario?</h6>
+                                    <p class=" d-flex justify-content-center"><%= users[i].firstName %> <%= users[i].lastName %> de ID <%= users[i].id %></p>
+                                </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <form action="/admin/users/delete/<%= users[i].id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Borrar</button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div> <!-- end Delete Modal -->
+                    <% } %>
+                </tbody>
+            </table>
+            <% if(users.length == 0) { %>
+                <div class="alert alert-secondary" role="alert">
+                    <b><em>No hay registros!</em></b>
+                  </div>
+            <% } %>
+        </div>
+
+    </div><!-- /.container -->
+
+</main>
+
+<%- include('../../../partials/footer.ejs') %>
+
+</body>
+</html>

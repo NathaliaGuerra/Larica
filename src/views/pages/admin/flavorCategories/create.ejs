@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%- include('../../partials/head.ejs'); %>
+    <%- include('../../../partials/head.ejs'); %>
 </head>
 
 
-    <%- include('../../partials/header.ejs'); %>
+    <%- include('../../../partials/header.ejs'); %>
 
 <body>
 <main>
@@ -22,7 +22,7 @@
 
         <div class="row py-5">
             <div class="col-md-4 offset-md-4"">
-                 <form action="/flavorCategories/create" method="POST">
+                 <form action="/admin/flavorCategories/create" method="POST">
  
                      <div class="mb-3">
                          <label for="name" class="form-label">Nombre</label>
@@ -53,7 +53,8 @@
                      </div>
  
                      <div class="mb-3">
-                         <button type="submit" class="btn btn-primary mb-3">Crear Categoría</button>
+                        <a href="/admin/flavorCategories" class="btn btn-secondary">Cancelar</a>
+                         <button type="submit" class="btn btn-primary">Crear Categoría</button>
                      </div>
  
                  </form>
@@ -64,7 +65,7 @@
 
 </main>
 
-<%- include('../../partials/footer.ejs') %>
+<%- include('../../../partials/footer.ejs') %>
 
 </body>
 </html>

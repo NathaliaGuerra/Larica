@@ -18,44 +18,53 @@
             </div>
         </section>
 
+        <div class="row d-flex justify-content-center">
+            <% if(typeof message != "undefined") { %>
+                <div class="alert alert-success d-flex justify-content-center" role="alert">
+                    <%= message %>
+                  </div>
+            <% } %>
+        </div>
 
         <div class="py-5 container">
-
+            
             <div class="col-md-12 d-flex justify-content-center">
+               
                 <form action="/login" method="POST">
-                    
+                
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input name="email" 
-                               type="email"
-                               value="<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>"  
-                               class="form-control" 
-                               placeholder="name@example.com"
-                               id="email"
-                               required>
+                                type="email"
+                                value="<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>"  
+                                class="form-control" 
+                                placeholder="name@example.com"
+                                id="email"
+                                required>
                         <small style="color: red;"><%= (typeof error != 'undefined' && error.email) ? error.email.msg : '' %></small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input name="password" 
-                               type="password" 
-                               class="form-control"
-                               id="password"
-                               required>
+                                type="password" 
+                                class="form-control"
+                                id="password"
+                                required>
                         <small style="color: red;"><%= (typeof error != 'undefined' && error.password) ? error.password.msg : '' %></small>
                     </div>
 
                     <div class="checkbox mb-3">
                         <label>
-                          <input name="rememberme" type="checkbox" value="rememberme"> Remember me
+                            <input name="rememberme" type="checkbox" value="rememberme"> Remember me
                         </label>
-                      </div>
+                        </div>
                     
                     <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Acceder</button>
                     </div>
                 </form>
+                
             </div>
 
         </div><!-- /.container -->

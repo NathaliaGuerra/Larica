@@ -31,14 +31,20 @@
                         aria-expanded="false"
                         />
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/products">Productos</a></li>
-                            <li><a class="dropdown-item" href="/flavorCategories">Categorías</a></li>
-                            <li><a class="dropdown-item" href="/flavors">Sabores</a></li>
+                            <% if(userAuthenticated.role == "Admin") { %>
+                            <li><a class="dropdown-item" href="/admin/products">Productos</a></li>
+                            <li><a class="dropdown-item" href="/admin/flavorCategories">Categorías</a></li>
+                            <li><a class="dropdown-item" href="/admin/flavors">Sabores</a></li>
+                            <li><a class="dropdown-item" href="/admin/users">Usuarios</a></li>
+                            <% } %>
+                            <li><hr class="dropdown-divider"></li>
+                            <% if(typeof userAuthenticated != "undefined") { %>
                             <li><a class="dropdown-item" 
                                 href="#" 
                                 data-bs-toggle="modal" 
-                                data-bs-target="#exampleModal">Mi Perfil</a></li>
+                                data-bs-target="#profileModal<%= userAuthenticated.id %>">Mi Perfil</a></li>
                             <li><a class="dropdown-item" href="#">Ver mi compra</a></li>
+                            <% } %>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
                         </ul>
@@ -49,7 +55,8 @@
         </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <% if(typeof userAuthenticated != "undefined") { %>
+    <div class="modal fade" id="profileModal<%= userAuthenticated.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content" style="color: black;">
             <div class="modal-header">
@@ -65,11 +72,11 @@
                             
                         </div><!-- /.col-lg-6 -->
                         <div class="col-lg-6">
-                            <% if(typeof userAuthenticated != "undefined") { %>
+                            
                             <h3><%= userAuthenticated.firstName %> <%= userAuthenticated.lastName %></h3>
                             <h6 class="text-muted"><%= userAuthenticated.email %></h6>
                             <h6 class="text-muted"><%= userAuthenticated.role %></h6>
-                            <% } %>
+                            
                         </div><!-- /.col-lg-6 -->
                     </div>
                 </div>
@@ -77,12 +84,13 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <% if(typeof userAuthenticated != "undefined") { %>
+            
                 <a href="/users/edit/<%= userAuthenticated.id %>" type="button" class="btn btn-primary">Editar</a>
-            <% } %>
+            
             </div>
         </div>
         </div>
     </div>
+    <% } %>
 </header>
     

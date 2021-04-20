@@ -14,24 +14,24 @@ module.exports = {
     res.render('pages/store/cart');
   },
   
-  AddressUser: async function(req, res) {
-    await res.render('pages/store/address');
-  },
+  // AddressUser: async function(req, res) {
+  //   await res.render('pages/store/address');
+  // },
 
-  storeAddress: async function(req, res) {
-      await User.create({
-          streetName: req. body.streetName,
-          streetNumber: req. body.streetNumber,
-          location: req. body.location,
-          city: req. body.city,
-          country: req. body.country,
-          zipCode: req. body.zipCode,
-          phoneNumber: req. body.phoneNumber
-      }).then((addressUser)=>{
-          res.redirect('/', (addressUser));
-      }).catch((error)=>{
-          console.log(error.message);
-      })
-  }
+  // storeAddress: async function(req, res) {
+  //     await User.create({
+  //         streetName: req. body.streetName,
+  //         streetNumber: req. body.streetNumber,
+  //         location: req. body.location,
+  //         city: req. body.city,
+  //         country: req. body.country,
+  //         zipCode: req. body.zipCode,
+  //         phoneNumber: req. body.phoneNumber
+  //     }).then((addressUser)=>{
+  //         res.redirect('/', (addressUser));
+  //     }).catch((error)=>{
+  //         console.log(error.message);
+  //     })
+  // }
     
 }

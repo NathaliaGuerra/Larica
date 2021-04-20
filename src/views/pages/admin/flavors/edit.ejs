@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%- include('../../partials/head.ejs'); %>
+    <%- include('../../../partials/head.ejs'); %>
 </head>
 
 
-    <%- include('../../partials/header.ejs'); %>
+    <%- include('../../../partials/header.ejs'); %>
 
 <body>
 <main>
@@ -29,7 +29,7 @@
                         <% } %>
                     </ul>
                 <% }%>
-                <form action="/flavors/edit/<%= flavor.id %>?_method=PUT" method="POST" >
+                <form action="/admin/flavors/edit/<%= flavor.id %>?_method=PUT" method="POST" >
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
@@ -39,6 +39,18 @@
                                class="form-control" 
                                placeholder="">
                         <small style="color: red;"><%= (typeof error != 'undefined' && error.name) ? error.name.msg : '' %></small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="flavorCategoryId" class="form-label">Categoria de Helado</label>
+                            <select name="flavorCategoryId" class="form-select" aria-label="Default select example">
+                                <% for(let i=0; i < flavorCategories.length; i++) { %>
+                                    <option value="<%= flavorCategories[i].id %>" <%= flavorCategories[i].id === flavor.flavorCategoryId ? 'selected' : '' %>>
+                                        <%= flavorCategories[i].name %>
+                                    </option>
+                                <% } %>
+                        </select>
+                        <small style="color: red;"><%= (typeof error != 'undefined' && error.flavorCategoryId) ? error.flavorCategoryId.msg : '' %></small>
                     </div>
 
                     <div class="mb-3">
@@ -71,7 +83,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-primary mb-3">Actualizar Sabor</button>
+                        <a href="/admin/flavors" class="btn btn-secondary">Volver</a>
+                        <button type="submit" class="btn btn-primary">Actualizar Sabor</button>
                     </div>
 
                 </form>
@@ -82,7 +95,7 @@
 
 </main>
 
-<%- include('../../partials/footer.ejs') %>
+<%- include('../../../partials/footer.ejs') %>
 
 </body>
 </html>

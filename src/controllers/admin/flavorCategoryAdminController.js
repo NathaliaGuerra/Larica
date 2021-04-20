@@ -1,4 +1,4 @@
-const db = require('../database/models/index');
+const db = require('../../database/models/index');
 const CATEGORY_ACTIVE = true;
 const CATEGORY_NOT_ACTIVE = false;
 
@@ -7,11 +7,11 @@ module.exports = {
     index: async (req, res) => {
         let categories = await db.FlavorCategory.findAll();
         console.log(categories);
-        res.render('pages/flavorCategories/categories', { categories, categories });
+        res.render('pages/admin/flavorCategories/categories', { categories, categories });
     },
 
     create: (req, res) => {
-        res.render('pages/flavorCategories/create');
+        res.render('pages/admin/flavorCategories/create');
     },
 
     store: async (req, res) => {
@@ -20,9 +20,9 @@ module.exports = {
             photo:  null,
             status: CATEGORY_ACTIVE
         }).then(() => {
-            res.render('pages/flavorCategories');
+            res.redirect('/admin/flavorCategories');
         }).catch((error) => {
-            res.render('pages/flavorCategories/create', { errors: error.message });
+            res.render('pages/admin/flavorCategories/create', { errors: error.message });
         });
     },
 
@@ -31,9 +31,9 @@ module.exports = {
             where: { id: req.params.id }
         }).then((category) => {
             if(category) {
-                res.render('pages/flavorCategories/show', {category: category});
+                res.render('pages/admin/flavorCategories/show', {category: category});
             } else {
-                res.render('pages/flavorCategories', { errors: 'Category does not exist' });
+                res.render('pages/admin/flavorCategories', { errors: 'Category does not exist' });
             }
         });
     },
@@ -43,9 +43,9 @@ module.exports = {
             where: { id: req.params.id }
         }).then((category) => {
             if(category) {
-                res.render('pages/flavorCategories/edit', { category });
+                res.render('pages/admin/flavorCategories/edit', { category });
             } else {
-                res.render('pages/flavorCategories', { error: 'Category does not exist' });
+                res.render('pages/admin/flavorCategories', { error: 'Category does not exist' });
             }
         });
     },
@@ -59,8 +59,8 @@ module.exports = {
             if(category) {
                 var categoryDataUpdate = {};
                 categoryDataUpdate.name = req.body.name ? req.body.name : category.name;
-                categoryDataUpdate.photo = requ.body.photo ? req.body.photo : category.photo,
-                categoryDataUpdate.status = requ.body.status ? req.body.status : category.status
+                categoryDataUpdate.photo = req.body.photo ? req.body.photo : category.photo,
+                categoryDataUpdate.status = req.body.status ? req.body.status : category.status
                 await db.FlavorCategory.update(categoryDataUpdate, {
                     where: {
                       id: req.params.id
@@ -89,9 +89,9 @@ module.exports = {
               id: req.params.id
             }
         }).then(() => {
-            res.redirect('/flavorCategories');
+            res.redirect('/admin/flavorCategories');
         }).catch((error) => {
-            res.render('/flavorCategories', {error: error});
+            res.render('/admin/flavorCategories', {error: error});
         });
     }
 

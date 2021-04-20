@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%- include('../../partials/head.ejs'); %>
+    <%- include('../../../partials/head.ejs'); %>
 </head>
 
 
-    <%- include('../../partials/header.ejs'); %>
+    <%- include('../../../partials/header.ejs'); %>
 
 <body>
 <main>
@@ -13,7 +13,7 @@
     <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
         <div class="container">
             <div class="col-md-10 px-0">
-                <h1 class="display-6 fst-italic">Products</h1>
+                <h1 class="display-6 fst-italic">Crear Sabor de Helado</h1>
             </div>
         </div>
     </section>
@@ -22,12 +22,12 @@
 
         <div class="row py-5">
             <div class="col-md-4 offset-md-4"">
-                 <form action="/products/create" method="POST">
+                 <form action="/admin/flavors/create" method="POST">
  
                      <div class="mb-3">
                          <label for="name" class="form-label">Nombre</label>
                          <input name="name" 
-                                type="number" 
+                                type="text" 
                                 value="<%= (typeof old != 'undefined' && !name) ? old.name : '' %>"
                                 class="form-control" 
                                 placeholder=""
@@ -35,30 +35,29 @@
                                 required>
                          <small style="color: red;"><%= (typeof error != 'undefined' && error.name) ? error.name.msg : '' %></small>
                      </div>
- 
+
                      <div class="mb-3">
-                         <label for="price" class="form-label">Precio</label>
-                         <input name="price" 
-                                type="text"
-                                value="<%= (typeof old != 'undefined' && !errors.price) ? old.price : '' %>" 
-                                class="form-control" 
-                                placeholder=""
-                                id="price"
-                                required>
-                         <small style="color: red;"><%= (typeof error != 'undefined' && error.price) ? error.price.msg : '' %></small>
-                     </div>
- 
+                        <label for="flavorCategoryId" class="form-label">Categoria de Helado</label>
+                            <select name="flavorCategoryId" class="form-select" aria-label="Default select example">
+                                <option value="">Seleccione</option>
+                                <% for(let i=0; i < flavorCategories.length; i++) { %>
+                                    <option value="<%= flavorCategories[i].id %>"><%= flavorCategories[i].name %></option>
+                                <% } %>
+                        </select>
+                        <small style="color: red;"><%= (typeof error != 'undefined' && error.flavorCategoryId) ? error.flavorCategoryId.msg : '' %></small>
+                    </div>
+
                      <div class="mb-3">
-                         <label for="flavorLimit" class="form-label">Limite de Sabores</label>
-                         <input name="flavorLimit" 
-                                type="number"
-                                value="<%= (typeof old != 'undefined' && !errors.flavorLimit) ? old.flavorLimit : '' %>"  
-                                class="form-control" 
-                                placeholder=""
-                                id="flavorLimit"
-                                required>
-                         <small style="color: red;"><%= (typeof error != 'undefined' && error.flavorLimit) ? error.flavorLimit.msg : '' %></small>
-                     </div>
+                        <label for="description" class="form-label">Descripción</label>
+                        <input name="description" 
+                               type="text" 
+                               value="<%= (typeof old != 'undefined' && !description) ? old.description : '' %>"
+                               class="form-control" 
+                               placeholder=""
+                               id="description"
+                               required>
+                        <small style="color: red;"><%= (typeof error != 'undefined' && error.description) ? error.description.msg : '' %></small>
+                    </div>
  
                      <div class="mb-3">
                          <label for="status" class="form-label">Status</label>
@@ -77,7 +76,8 @@
                      </div>
  
                      <div class="mb-3">
-                         <button type="submit" class="btn btn-primary mb-3">Crear Producto</button>
+                        <a href="/admin/flavors" class="btn btn-secondary">Cancelar</a>
+                         <button type="submit" class="btn btn-primary">Crear Sabor</button>
                      </div>
  
                  </form>
@@ -88,7 +88,7 @@
 
 </main>
 
-<%- include('../../partials/footer.ejs') %>
+<%- include('../../../partials/footer.ejs') %>
 
 </body>
 </html>

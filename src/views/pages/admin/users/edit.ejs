@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%- include('../../partials/head.ejs'); %>
+    <%- include('../../../partials/head.ejs'); %>
 </head>
 
 
-    <%- include('../../partials/header.ejs'); %>
+    <%- include('../../../partials/header.ejs'); %>
 
 <body>
 <main>
@@ -13,7 +13,7 @@
     <section class="p-4 p-md-5 mb-4 text-white bg-dark img-hero">
         <div class="container">
             <div class="col-md-10 px-0">
-                <h1 class="display-6 fst-italic">Registro</h1>
+                <h1 class="display-6 fst-italic">Editar Usuario</h1>
             </div>
         </div>
     </section>
@@ -29,7 +29,7 @@
                     <% } %>
                 </ul>
             <% }%>
-            <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" >
+            <form action="/admin/users/edit/<%= user.id %>?_method=PUT" method="POST" >
 
                 <div class="mb-3">
                     <label for="firstName" class="form-label">Nombre</label>
@@ -103,7 +103,7 @@
 
 </main>
 
-<%- include('../../partials/footer.ejs') %>
+<%- include('../../../partials/footer.ejs') %>
 
 </body>
 </html>

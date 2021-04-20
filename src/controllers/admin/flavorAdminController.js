@@ -1,4 +1,4 @@
-const db = require('../database/models/index');
+const db = require('../../database/models/index');
 const FLAVOR_ACTIVE = true;
 const FLAVOR_NOT_ACTIVE = false;
 
@@ -6,24 +6,27 @@ module.exports = {
 
     index: async (req, res) => {
         let flavors = await db.Flavor.findAll();
-        console.log(flavors);
-        res.render('pages/flavors/flavors', { flavors, flavors });
+        let flavorCategories = await db.FlavorCategory.findAll();
+        res.render('pages/admin/flavors/flavors', { flavors, flavorCategories });
     },
 
-    create: (req, res) => {
-        res.render('pages/flavors/create');
+    create: async (req, res) => {
+        let flavorCategories = await db.FlavorCategory.findAll();
+        res.render('pages/admin/flavors/create', { flavorCategories });
     },
 
     store: async (req, res) => {
         await db.Flavor.create({
             name: req.body.name,
+            flavoCategoryId: req.body.flavorCategoryId,
             description: req.body.description,
             photo:  null,
             status: FLAVOR_ACTIVE
-        }).then(() => {
-            res.render('pages/flavors');
+        }).then((flavor) => {
+            res.redirect('/admin/flavors');
         }).catch((error) => {
-            res.render('pages/flavors/create', { errors: error.message });
+            console.log(error);
+            res.render('pages/admin/flavors/create', { errors: error.message });
         });
     },
 
@@ -32,9 +35,9 @@ module.exports = {
             where: { id: req.params.id }
         }).then((flavor) => {
             if(flavor) {
-                res.render('pages/flavors/show', {flavor: flavor});
+                res.render('pages/admin/flavors/show', {flavor: flavor});
             } else {
-                res.render('pages/flavors', { errors: 'Flavor does not exist' });
+                res.render('pages/admin/flavors', { errors: 'Flavor does not exist' });
             }
         });
     },
@@ -42,11 +45,12 @@ module.exports = {
     edit: async (req, res) => {
         await db.Flavor.findOne({
             where: { id: req.params.id }
-        }).then((flavor) => {
+        }).then( async (flavor) => {
             if(flavor) {
-                res.render('pages/flavors/edit', { flavor });
+                let flavorCategories = await db.FlavorCategory.findAll();
+                res.render('pages/admin/flavors/edit', { flavor, flavorCategories });
             } else {
-                res.render('pages/flavors', { error: 'Flavor does not exist' });
+                res.render('pages/admin/flavors', { error: 'Flavor does not exist' });
             }
         });
     },
@@ -61,8 +65,8 @@ module.exports = {
                 var flavorDataUpdate = {};
                 flavorDataUpdate.name = req.body.name ? req.body.name : flavor.name;
                 flavorDataUpdate.description = req.body.description ? req.body.description : flavor.description;
-                flavorDataUpdate.photo = requ.body.photo ? req.body.photo : flavor.photo,
-                flavorDataUpdate.status = requ.body.status ? req.body.status : flavor.status
+                flavorDataUpdate.photo = req.body.photo ? req.body.photo : flavor.photo,
+                flavorDataUpdate.status = req.body.status ? req.body.status : flavor.status
                 await db.Flavor.update(flavorDataUpdate, {
                     where: {
                       id: req.params.id
@@ -91,9 +95,9 @@ module.exports = {
               id: req.params.id
             }
         }).then(() => {
-            res.redirect('/flavors');
+            res.redirect('/admin/flavors');
         }).catch((error) => {
-            res.render('/flavors', {error: error});
+            res.render('/admin/flavors', {error: error});
         });
     }
 
