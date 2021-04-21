@@ -23,6 +23,7 @@ module.exports = {
             lastName: req.body.lastName,
             email: req.body.email,
             password:  bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null),
+            avatar: (req.file != undefined) ? res.session.userAuthenticated.avatar : req.file.filename, 
             role: REGISTERED_USER
         }).then((user) => {
             res.redirect('/admin/users');
@@ -68,7 +69,10 @@ module.exports = {
                 userDataUpdate.email = req.body.email ? req.body.email : user.email;
                 if(req.body.password){
                     userDataUpdate.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null);
-                }
+                };
+                if(req.file) {
+                    userDataUpdate.avatar = (req.file != undefined) ? res.session.userAuthenticated.avatar : req.file.filename; 
+                };
                 await db.User.update(userDataUpdate, {
                     where: {
                       id: req.params.id

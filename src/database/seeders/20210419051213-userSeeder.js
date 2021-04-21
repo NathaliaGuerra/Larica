@@ -1,19 +1,19 @@
 'use strict';
 
-const faker = require('faker');
+// const faker = require('faker');
 const bcrypt = require('bcrypt');
 
-const users = [...Array(50)].map((user) =>(
-    {
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
-        email: faker.internet.email(),
-        password:  bcrypt.hashSync('password', bcrypt.genSaltSync(10), null),
-        role: 'Registered',
-        createdAt: new Date(),
-        updatedAt: new Date()
-    }
-))
+// const users = [...Array(50)].map((user) =>(
+//     {
+//         firstName: faker.name.firstName(),
+//         lastName: faker.name.lastName(),
+//         email: faker.internet.email(),
+//         password:  bcrypt.hashSync('password', bcrypt.genSaltSync(10), null),
+//         role: 'Registered',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//     }
+// ))
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -47,7 +47,7 @@ module.exports = {
       updatedAt: new Date()
     }], {});
       // Registered users
-      await queryInterface.bulkInsert('Users', users, {}); 
+      // await queryInterface.bulkInsert('Users', users, {}); 
   },
 
   down: async (queryInterface, Sequelize) => {

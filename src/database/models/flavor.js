@@ -16,7 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'flavorCategoryId'
       });
       Flavor.belongsToMany(models.OrderItem, {
-        through: 'flavor_orderitem'
+        as: 'orderitems',
+        through: 'flavor_orderitems',
+        foreignKey: 'flavorId',
+        otherKey: 'orderItemId',
+        timestamps: false
       });
 
     }

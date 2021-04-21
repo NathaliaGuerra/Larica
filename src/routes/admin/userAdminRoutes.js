@@ -5,8 +5,7 @@ const { validationResult } = require('express-validator');
 const { userRegisterValidationRules } = require('../../validations/userRegisterValidationRules');
 const { userUpdateValidationRules } = require('../../validations/userUpdateValidationRules');
 const userAdminController = require('../../controllers/admin/userAdminController');
-// const validationResult = require('../../middlewares/validationResult');
-// const multerMiddleware = require('../../middlewares/multerMiddleware');
+const multerProduct = require('../../middlewares/multerProduct');
 
 router.get(
     '/',
@@ -20,18 +19,17 @@ router.get(
 
 router.post(
     '/create',
+    multerProduct.any(),
     userRegisterValidationRules(),
-    // (req, res) => { userAdminController.store(req, res) }
-    
     async (req, res) => { 
-        // let errors = validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render('pages/admin/users/create', { error });
-        // }
+        let errors = validationResult(req);
+        if(!errors.isEmpty()){
+            let error = {};
+            errors.array().map((err) => {
+                error[err.param] = { msg: err.msg };
+            });
+            return res.render('pages/admin/users/create', { error });
+        }
         userAdminController.store(req, res) 
     }
 );
@@ -48,18 +46,18 @@ router.get(
 
 router.put(
     '/edit/:id',
-    //userUpdateValidationRules(),
-    //multerMiddleware.any(),
+    multerProduct.any(),
+    userUpdateValidationRules(),
     async (req, res) => { 
         
-        // let errors = await validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render(`pages/admin/users/edit/${req.body.id}`, { error });
-        // }
+        let errors = await validationResult(req);
+        if(!errors.isEmpty()){
+            let error = {};
+            errors.array().map((err) => {
+                error[err.param] = { msg: err.msg };
+            });
+            return res.render(`pages/admin/users/edit/${req.body.id}`, { error });
+        }
         userAdminController.update(req, res)    
     }
 );

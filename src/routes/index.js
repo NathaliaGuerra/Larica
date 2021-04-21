@@ -11,6 +11,7 @@ const contactRouter = require('./contactRoutes');
 const storeRouter = require('./storeRoutes');
 const usRouter = require('./usRoutes');
 const userRouter = require('./userRoutes');
+const orderRouter = require('./orderRoutes');
 
 // App Admin Routes Require files
 const userAdminRouter = require('./admin/userAdminRoutes');
@@ -34,6 +35,7 @@ router.use('/store', storeRouter);
 router.use('/us', usRouter);   
 router.use('/users', userRouter);
 router.use('/details',productsRouter);
+router.use('/orders', orderRouter);
 
 // App Admin Routes
 router.use('/admin/users',userAdminRouter);

@@ -19,7 +19,7 @@ app.set("views", path.join(__dirname, "src/views"));
 app.use(express.static(path.join(__dirname, './public')));
 app.use(session({
     secret: "say my name",
-    resave: false,
+    resave: true,
     saveUninitialized: true
 }));
 app.use(cookieParser());

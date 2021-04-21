@@ -17,14 +17,6 @@ router.get(
 router.post(
     '/create',    
     async (req, res) => { 
-        // let errors = validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render('pages/admin/flavors/create', { error });
-        // }
         flavorAdminController.store(req, res) 
     }
 );
@@ -41,17 +33,7 @@ router.get(
 
 router.put(
     '/edit/:id',
-    //multerMiddleware.any(),
     async (req, res) => { 
-        
-        // let errors = await validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render(`pages/admin/flavors/edit/${req.body.id}`, { error });
-        // }
         flavorAdminController.update(req, res)    
     }
 );

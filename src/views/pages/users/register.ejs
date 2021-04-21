@@ -80,6 +80,12 @@
                     <small style="color: red;"><%= (typeof error != 'undefined' && error.passwordConfirmation) ? error.passwordConfirmation.msg : '' %></small>
                 </div>
 
+                <div class="mb-3 card">
+                    <label for="avatar" class="form-label">Avatar</label>
+                    <input name="avatar" type="file" class="form-control-file" id="avatar">
+                    <small style="color: red;"><%= (typeof error != 'undefined' && error.avatar) ? error.avatar.msg : '' %></small>
+                </div>
+
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </div>

@@ -16,17 +16,7 @@ router.get(
 
 router.post(
     '/create',    
-    async (req, res) => { 
-        let errors = validationResult(req);
-        if(!errors.isEmpty()){
-            let error = {};
-            errors.array().map((err) => {
-                error[err.param] = { msg: err.msg };
-            });
-            return res.render('pages/admin/flavorCategories/create', { error });
-        }
-        flavorCategoryAdminController.store(req, res) 
-    }
+    async (req, res) => { flavorCategoryAdminController.store(req, res) }
 );
 
 router.get(
@@ -41,19 +31,7 @@ router.get(
 
 router.put(
     '/edit/:id',
-    //multerMiddleware.any(),
-    async (req, res) => { 
-        
-        // let errors = await validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render(`pages/admin/flavorCategories/edit/${req.body.id}`, { error });
-        // }
-        flavorCategoryAdminController.update(req, res)    
-    }
+    async (req, res) => { flavorCategoryAdminController.update(req, res) }
 );
 
 router.delete(

@@ -7,7 +7,7 @@ const products = [
         name: '1/4 kg.',
         price: 350,
         flavorLimit: 3,
-        photo: faker.commerce.photo,
+        photo: 'size-250gr.jpg',
         status: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -16,7 +16,7 @@ const products = [
         name: '1/2 kg.',
         price: 600,
         flavorLimit: 5,
-        photo: faker.commerce.photo,
+        photo: 'size-500gr.jpg',
         status: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -25,7 +25,7 @@ const products = [
         name: '1 kg.',
         price: 1100,
         flavorLimit: 7,
-        photo: faker.commerce.photo,
+        photo: 'size-1kg.jpg',
         status: true,
         createdAt: new Date(),
         updatedAt: new Date()

@@ -12,15 +12,30 @@ module.exports = {
                 email: req.body.email 
             } 
         });
-        let userAuthenticated = user;
+
+        let userAuthenticated = {};
+        if(user) {
+            userAuthenticated = {
+                id: user.id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                avatar: user.avatar,
+                role: user.role
+            };
+        }
+
         req.session.userAuthenticated = userAuthenticated; 
         
         if(req.body.rememberme != undefined) {
+            
             res.cookie('rememberme', 
             userAuthenticated.id, {
-                maxAge: 3000000
+                maxAge: 80000
             })
+
         }
+
         return res.redirect('/');
     },
 
@@ -30,8 +45,14 @@ module.exports = {
                 console.log(error);   
                 res.render('/', {error});  
             } else {
+
+                res.cookie('rememberme', 
+                null, {
+                    maxAge: 1
+                });
+
                 console.log("Session Destroyed");
-                res.redirect('/');
+                res.redirect('/login');
             }
         });
     }

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const productAdminController = require('../../controllers/admin/productAdminController');
+const multerProduct = require('../../middlewares/multerProduct');
 
 router.get(
     '/',
@@ -15,17 +16,8 @@ router.get(
 
 router.post(
     '/create',   
-    async (req, res) => { 
-        // let errors = validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render('pages/products/create', { error });
-        // }
-        productAdminController.store(req, res) 
-    }
+    multerProduct.any(),
+    async (req, res) => {  productAdminController.store(req, res) }
 );
 
 router.get(
@@ -40,19 +32,8 @@ router.get(
 
 router.put(
     '/edit/:id',
-    //multerMiddleware.any(),
-    async (req, res) => { 
-        
-        // let errors = await validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render(`pages/users/edit/${req.body.id}`, { error });
-        // }
-        productAdminController.update(req, res)    
-    }
+    multerProduct.any(),
+    async (req, res) => { productAdminController.update(req, res) }
 );
 
 router.delete(

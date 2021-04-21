@@ -5,7 +5,12 @@ const PRODUCT_NOT_ACTIVE = false;
 module.exports = {
 
     index: async (req, res) => {
-        res.render('pages/products/products');
+        let flavors = await db.Flavor.findAll({
+            where: {
+                status: true
+            }
+        }); 
+        res.render('pages/products/products', { flavors });
     },
 
     show: async (req, res) => {

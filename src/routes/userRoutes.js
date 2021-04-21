@@ -5,8 +5,7 @@ const { validationResult } = require('express-validator');
 const { userRegisterValidationRules } = require('../validations/userRegisterValidationRules');
 const { userUpdateValidationRules } = require('../validations/userUpdateValidationRules');
 const userController = require('../controllers/userController');
-// const validationResult = require('../middlewares/validationResult');
-// const multerMiddleware = require('../middlewares/multerMiddleware');
+const multerUser = require('../middlewares/multerUser');
 
 router.get(
     '/',
@@ -20,9 +19,8 @@ router.get(
 
 router.post(
     '/register',
+    multerUser.any(),
     userRegisterValidationRules(),
-    // (req, res) => { userAdminController.store(req, res) }
-    
     async (req, res) => { 
         let errors = validationResult(req);
         if(!errors.isEmpty()){
@@ -48,18 +46,18 @@ router.get(
 
 router.put(
     '/edit/:id',
-    //userUpdateValidationRules(),
-    //multerMiddleware.any(),
+    multerUser.any(),
+    userUpdateValidationRules(),
     async (req, res) => { 
         
-        // let errors = await validationResult(req);
-        // if(!errors.isEmpty()){
-        //     let error = {};
-        //     errors.array().map((err) => {
-        //         error[err.param] = { msg: err.msg };
-        //     });
-        //     return res.render(`pages/users/edit/${req.body.id}`, { error });
-        // }
+        let errors = await validationResult(req);
+        if(!errors.isEmpty()){
+            let error = {};
+            errors.array().map((err) => {
+                error[err.param] = { msg: err.msg };
+            });
+            return res.render(`pages/users/edit/${req.body.id}`, { error });
+        }
         userController.update(req, res)    
     }
 );
