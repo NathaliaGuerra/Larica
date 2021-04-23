@@ -47,12 +47,12 @@ module.exports = {
     // Get customer authenticated
     let user = res.locals.userAuthenticated;
 
-    // Get product selected by customer
-    let productId = parseInt(req.body.product);
+    // Get productSize selected by customer
+    let productId = parseInt(req.body.productSize);
     let product = await db.Product.findOne({ where: { id: productId } });
 
     // Get flavors selected by customer ['1','2','3'] --> whereIn
-    let flavors = await db.Flavor.findAll({ where: { id: req.body.flavorSelected } });
+    let flavors = await db.Flavor.findAll({ where: { id: req.body.flavorsSelected } });
 
       try {
         // 1.- create order

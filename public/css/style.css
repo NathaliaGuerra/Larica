@@ -3,6 +3,10 @@ body {
     padding-bottom: 0 !important;
 }
 
+#logo {
+    padding-right: 3rem;
+}
+
 .categories-title {
     padding: 3rem 0 3rem 0;
 }
@@ -27,9 +31,20 @@ body {
     margin-bottom: 1.5rem;
     text-align: center;
 }
+
 .categories h2 {
     font-weight: 400;
 }
+
+.categories a {
+    text-decoration: none !important;
+}
+
+.categories a h5 {
+    font-weight: 600;
+    color: #212529;
+}
+
 /* rtl:begin:ignore */
 .categories .col-lg-4 p {
     margin-right: .75rem;
