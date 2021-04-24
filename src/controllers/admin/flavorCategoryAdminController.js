@@ -17,7 +17,7 @@ module.exports = {
     store: async (req, res) => {
         await db.FlavorCategory.create({
             name: req.body.name,
-            photo:  null,
+            photo:  req.file.filename,
             status: CATEGORY_ACTIVE
         }).then(() => {
             res.redirect('/admin/flavorCategories');

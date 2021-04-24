@@ -68,10 +68,14 @@ body {
 
 
 .img-hero {
-    background: url(../images/heroes/pexels-eva-elijas-6104222.jpg) no-repeat center center fixed;
+    background: url(../images/heroes/hero.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     overflow: hidden;
     opacity: 1;
 }
 
+#back-to-top {
+    text-decoration: none !important;
+    color: white !important;
+}

@@ -1,96 +1,106 @@
 <header class="p-3 bg-dark text-white">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    <h1 id="logo">LARICA</h1>
-                </a>
-    
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 text-white">Inicio</a></li>
-                    <li><a href="/products" class="nav-link px-2 text-white">Helados</a></li>
-                    <li><a href="/store" class="nav-link px-2 text-white">Tienda</a></li>
-                    <li><a href="/us" class="nav-link px-2 text-white">Nosotros</a></li>
-                    <li><a href="/contact-us" class="nav-link px-2 text-white">Contacto</a></li>
-                </ul>
-    
-                <div class="text-end">
-                    <% if(typeof userAuthenticated == "undefined") { %>
-                        <a href="/login" type="button" class="btn btn-outline-light me-2">Acceso</a>
-                        <a href="/users/register" type="button" class="btn btn-outline-light me-2">Registrate</a>
-                    <% } else  { %>
-                    <img 
-                        src="/images/default_user.png" 
-                        width="42" 
-                        height="42" 
-                        alt="profile" 
-                        class="bd-placeholder-img rounded-circle dropdown-toggle"
-                        id="navbarDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"
-                        />
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <% if(userAuthenticated.role == "Admin") { %>
-                            <li><a class="dropdown-item" href="/admin/products">Productos</a></li>
-                            <li><a class="dropdown-item" href="/admin/flavorCategories">Categorías</a></li>
-                            <li><a class="dropdown-item" href="/admin/flavors">Sabores</a></li>
-                            <li><a class="dropdown-item" href="/admin/users">Usuarios</a></li>
-                            <% } %>
-                            <li><hr class="dropdown-divider"></li>
-                            <% if(typeof userAuthenticated != "undefined") { %>
-                            <li><a class="dropdown-item" 
-                                href="#" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#profileModal<%= userAuthenticated.id %>">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Ver mi compra</a></li>
-                            <% } %>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
-                        </ul>
-                    <% } %>
-                    <a href="/store/cart" type="button" class="btn btn-warning"><i class="bi bi-cart4"></i></a>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a href="/" class="d-flex align-items-center mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                        <h1 id="logo">LARICA</h1>
+                    </a>
 
-    <!-- Modal -->
-    <% if(typeof userAuthenticated != "undefined") { %>
-    <div class="modal fade" id="profileModal<%= userAuthenticated.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content" style="color: black;">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Mi Perfil</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 d-flex justify-content-center">
-                            <img src="/images/default_user.png" alt="" class="bd-placeholder-img rounded-circle" width="100" height="100">
-                            
-                        </div><!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            
-                            <h3><%= userAuthenticated.firstName %> <%= userAuthenticated.lastName %></h3>
-                            <h6 class="text-muted"><%= userAuthenticated.email %></h6>
-                            <h6 class="text-muted"><%= userAuthenticated.role %></h6>
-                            
-                        </div><!-- /.col-lg-6 -->
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li><a href="/" class="nav-link px-2 text-white">Inicio</a></li>
+                        <li><a href="/products" class="nav-link px-2 text-white">Helados</a></li>
+                        <li><a href="/store" class="nav-link px-2 text-white">Tienda</a></li>
+                        <li><a href="/us" class="nav-link px-2 text-white">Nosotros</a></li>
+                        <li><a href="/contact-us" class="nav-link px-2 text-white">Contacto</a></li>
+                    </ul>
+
+                    <div class="d-flex">
+                        <% if(typeof userAuthenticated == "undefined") { %>
+                            <a href="/login" type="button" class="btn btn-outline-light me-2">Acceso</a>
+                            <a href="/users/register" type="button" class="btn btn-outline-light me-2">Registrate</a>
+                        <% } else  { %>
+                        <img 
+                            src="/images/default_user.png" 
+                            width="42" 
+                            height="42" 
+                            alt="profile" 
+                            class="bd-placeholder-img rounded-circle dropdown-toggle"
+                            id="navbarDropdown" 
+                            role="button" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false"
+                            />
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <% if(userAuthenticated.role == "Admin") { %>
+                                <li><a class="dropdown-item" href="/admin/products">Productos</a></li>
+                                <li><a class="dropdown-item" href="/admin/flavorCategories">Categorías</a></li>
+                                <li><a class="dropdown-item" href="/admin/flavors">Sabores</a></li>
+                                <li><a class="dropdown-item" href="/admin/users">Usuarios</a></li>
+                                <% } %>
+                                <li><hr class="dropdown-divider"></li>
+                                <% if(typeof userAuthenticated != "undefined") { %>
+                                <li><a class="dropdown-item" 
+                                    href="#" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#profileModal<%= userAuthenticated.id %>">Mi Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Ver mi compra</a></li>
+                                <% } %>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+                            </ul>
+                        <% } %>
+                        <a href="/store/cart" type="button" class="btn btn-warning"><i class="bi bi-cart4"></i></a>
                     </div>
+                  </div>
                 </div>
+              </nav>
 
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            
-                <a href="/users/edit/<%= userAuthenticated.id %>" type="button" class="btn btn-primary">Editar</a>
-            
-            </div>
-        </div>
+              <!-- Modal -->
+                <% if(typeof userAuthenticated != "undefined") { %>
+                    <div class="modal fade" id="profileModal<%= userAuthenticated.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content" style="color: black;">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Mi Perfil</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6 d-flex justify-content-center">
+                                            <img src="/images/default_user.png" alt="" class="bd-placeholder-img rounded-circle" width="100" height="100">
+                                            
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            
+                                            <h3><%= userAuthenticated.firstName %> <%= userAuthenticated.lastName %></h3>
+                                            <h6 class="text-muted"><%= userAuthenticated.email %></h6>
+                                            <h6 class="text-muted"><%= userAuthenticated.role %></h6>
+                                            
+                                        </div><!-- /.col-lg-6 -->
+                                    </div>
+                                </div>
+                
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            
+                                <a href="/users/edit/<%= userAuthenticated.id %>" type="button" class="btn btn-primary">Editar</a>
+                            
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <% } %>
         </div>
     </div>
-    <% } %>
-</header>
-    
+  </header>

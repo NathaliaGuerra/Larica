@@ -3,36 +3,42 @@
 const flavorCategories = [
   {
     name: 'Chocolates',
+    photo:'chocolates.jpg',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     name: 'Dulce de Leche',
+    photo:'dulces-de-leche.jpg',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     name: 'Cremas',
+    photo:'cremas.jpg',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     name: 'Frutales',
+    photo:'frutales.jpg',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     name: 'Veganos',
+    photo:'veganos.jpg',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     name: 'Especiales',
+    photo:'especiales.jpg',
     status: true,
     createdAt: new Date(),
     updatedAt: new Date()
