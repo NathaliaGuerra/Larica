@@ -79,3 +79,9 @@ body {
     text-decoration: none !important;
     color: white !important;
 }
+
+
+#registerLink p a {
+    text-decoration: none;
+    color: #212529;
+}

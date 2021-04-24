@@ -35,7 +35,7 @@ const flavors = [
       flavorCategoryId: 1,
       name:'Chocolate Con Almendras',
       description:'Crema helada de chocolate semi amargo con almendras partidas garrapiñadas.',
-      photo: 'ProductImgImg/chocolate-almendras.jpg',
+      photo: 'chocolate-almendras.jpg',
       status:true,
       createdAt: new Date(),
       updatedAt: new Date()

@@ -21,44 +21,49 @@
                         <li><a href="/us" class="nav-link px-2 text-white">Nosotros</a></li>
                         <li><a href="/contact-us" class="nav-link px-2 text-white">Contacto</a></li>
                     </ul>
-
-                    <div class="d-flex">
-                        <% if(typeof userAuthenticated == "undefined") { %>
-                            <a href="/login" type="button" class="btn btn-outline-light me-2">Acceso</a>
-                            <a href="/users/register" type="button" class="btn btn-outline-light me-2">Registrate</a>
-                        <% } else  { %>
-                        <img 
-                            src="/images/default_user.png" 
-                            width="42" 
-                            height="42" 
-                            alt="profile" 
-                            class="bd-placeholder-img rounded-circle dropdown-toggle"
-                            id="navbarDropdown" 
-                            role="button" 
-                            data-bs-toggle="dropdown" 
-                            aria-expanded="false"
-                            />
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <% if(userAuthenticated.role == "Admin") { %>
-                                <li><a class="dropdown-item" href="/admin/products">Productos</a></li>
-                                <li><a class="dropdown-item" href="/admin/flavorCategories">Categorías</a></li>
-                                <li><a class="dropdown-item" href="/admin/flavors">Sabores</a></li>
-                                <li><a class="dropdown-item" href="/admin/users">Usuarios</a></li>
-                                <% } %>
-                                <li><hr class="dropdown-divider"></li>
-                                <% if(typeof userAuthenticated != "undefined") { %>
-                                <li><a class="dropdown-item" 
-                                    href="#" 
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#profileModal<%= userAuthenticated.id %>">Mi Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Ver mi compra</a></li>
-                                <% } %>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
-                            </ul>
-                        <% } %>
-                        <a href="/store/cart" type="button" class="btn btn-warning"><i class="bi bi-cart4"></i></a>
-                    </div>
+                    <div class="dropdown px-5">
+                        <div class="d-flex">
+                            <% if(typeof userAuthenticated == "undefined") { %>
+                                <a href="/login" type="button" class="btn btn-outline-light me-2">Acceso</a>
+                                <a href="/users/register" type="button" class="btn btn-outline-light me-2">Registrate</a>
+                            <% } else  { %>
+                            <div class="px-3">
+                                <img 
+                                src="/images/default_user.png" 
+                                width="42" 
+                                height="42" 
+                                alt="profile" 
+                                class="bd-placeholder-img rounded-circle dropdown-toggle"
+                                id="navbarDropdown" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false"
+                                />
+                                
+                            
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <% if(userAuthenticated.role == "Admin") { %>
+                                    <li><a class="dropdown-item" href="/admin/products">Productos</a></li>
+                                    <li><a class="dropdown-item" href="/admin/flavorCategories">Categorías</a></li>
+                                    <li><a class="dropdown-item" href="/admin/flavors">Sabores</a></li>
+                                    <li><a class="dropdown-item" href="/admin/users">Usuarios</a></li>
+                                    <% } %>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <% if(typeof userAuthenticated != "undefined") { %>
+                                    <li><a class="dropdown-item" 
+                                        href="#" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#profileModal<%= userAuthenticated.id %>">Mi Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver mi compra</a></li>
+                                    <% } %>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
+                            <% } %>
+                            <a href="/store/cart" type="button" class="btn btn-warning"><i class="bi bi-cart4"></i></a>
+                        </div>
+                     </div>
                   </div>
                 </div>
               </nav>
