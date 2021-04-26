@@ -86,12 +86,17 @@ body {
     color: #212529;
 }
 
+#cartItemNumber {
+    position: absolute;
+    left: 17.10rem;
+}
+
 /* MOBILE ADJ
 -------------------------------------------------- */
 
 @media (max-width: 769px){
-    #footer{display: none;}
-    #cartCard{display: none;},
+    #footer { display: none; }
+    #cartCard { display: none; }
 }
 
 @media (max-width: 769px) {
@@ -102,7 +107,7 @@ body {
 }
 
 @media (max-width: 769px){
-    .row {padding-right: 0px;}
+    .row { padding-right: 0px; }
     .carousel-caption h1 {
         font-size: x-large !important;
     }

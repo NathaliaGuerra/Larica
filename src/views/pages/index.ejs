@@ -113,37 +113,15 @@
                 <h2>Sabores</h2>
             </div>
 
-            <div class="col-lg-4">
-                <img src="images/indexImg/chocolates.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                <h2>Chocolates</h2>
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-4">
-                <img src="images/indexImg/dulces-de-leche.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                <h2>Dulce de Leche</h2>
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-4">
-                <img src="images/indexImg/cremas.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                <h2>Cremas</h2>
-            </div><!-- /.col-lg-4 -->
-
-        </div><!-- /.row -->
-        <div class="row">
-            <div class="col-lg-4">
-                <img src="images/indexImg/frutales.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                <h2>Frutales</h2>
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-4">
-                <img src="images/indexImg/veganos.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                <h2>Veganos</h2>
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-4">
-                <img src="images/indexImg/especiales.jpg" alt="" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                <h2>Especiales</h2>
-            </div><!-- /.col-lg-4 -->
+            <% if(typeof categories != "undefined"){ %>
+                <% for( let i = 0; i < categories.length; i++){ %>
+                    <div class="col-lg-4">
+                        <img src="/uploads/products/<%=categories[i].photo %>" alt="<%=categories[i].name %>" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                        <h2><%=categories[i].name %></h2>
+                    </div><!-- /.col-lg-4 -->
+                <% } %>
+            <% } %>
+          
 
         </div><!-- /.row -->
 

@@ -33,6 +33,7 @@ module.exports = {
         email: 'nath-admin@war.com',
         password:  bcrypt.hashSync('password', bcrypt.genSaltSync(10), null),
         role: 'Admin',
+        avatar: 'default_user.png',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});
@@ -43,6 +44,7 @@ module.exports = {
       email: 'nath-user@war.com',
       password:  bcrypt.hashSync('password', bcrypt.genSaltSync(10), null),
       role: 'Registered',
+      avatar: 'default_user.png',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

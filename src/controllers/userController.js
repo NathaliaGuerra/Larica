@@ -20,13 +20,13 @@ module.exports = {
     },
 
     store: async (req, res) => {
-        // let avatar = (req.file != undefined) ? res.session.userAuthenticated.avatar : req.file.filename; 
+        let avatar = (req.files != undefined) ? req.files[0].filename : 'default_user.png'; 
         await db.User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
             password:  bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null),
-            avatar: null,
+            avatar: avatar,
             role: REGISTERED_USER
         }).then(() => {
             res.render('pages/login', { message: 'The user was created! Now you can try login.' });
@@ -73,13 +73,12 @@ module.exports = {
                 if(req.body.password){
                     userDataUpdate.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null);
                 }
-                userDataUpdate.avatar = (req.file != undefined) ? res.session.userAuthenticated.avatar : req.file.filename; 
+                userDataUpdate.avatar = (req.files != undefined) ? req.files[0].filename : user.avatar; 
                 await db.User.update(userDataUpdate, {
                     where: {
                       id: req.params.id
                     }
                   }).then((userUpdated) => {
-                      console.log('aquiiiiiiii: ' + userUpdated);
                       res.redirect(req.params.id);
                   }).catch((error) => {
                     console.log(error);

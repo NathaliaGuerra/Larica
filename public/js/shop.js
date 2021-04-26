@@ -11,26 +11,31 @@ if (localStorage == undefined || localStorage.cart == undefined || localStorage.
 
         let cart = localStorage.cart;
         cart = JSON.parse(cart);
-        console.log(cart);
         
         let total = 0;
         for(let i = 0; i < cart.length; i ++){  
 
             total = total + parseInt(cart[i].productPrice);
-
-                showOrderItems.innerHTML += `
-                <tr>
-                    <td>
-                        <p>
-                            <small>${cart[i].productName} (${cart[i].flavorsSelected.toString()})</small>
-                        </p>
-                    </td>
-                    <td>
-                        <p> $${cart[i].productPrice}</p>
-                    </td>
-                </tr>
-                `
+            showOrderItems.innerHTML += `
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteCartItem(${i})">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+                <td>
+                    <p>
+                        <small>${cart[i].productName} (${cart[i].flavorsSelected.toString()})</small>
+                    </p>
+                </td>
+                <td>
+                    <p> $${cart[i].productPrice}</p>
+                </td>
+            </tr>
+            `
         }
+
+        localStorage.setItem("cartItemNumber", cart.length); 
         totalPrice.innerHTML += `$ ${total}`
     }
 }

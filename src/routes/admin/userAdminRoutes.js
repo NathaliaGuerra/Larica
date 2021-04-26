@@ -5,7 +5,7 @@ const { validationResult } = require('express-validator');
 const { userRegisterValidationRules } = require('../../validations/userRegisterValidationRules');
 const { userUpdateValidationRules } = require('../../validations/userUpdateValidationRules');
 const userAdminController = require('../../controllers/admin/userAdminController');
-const multerProduct = require('../../middlewares/multerProduct');
+const multerUser = require('../../middlewares/multerUser');
 
 router.get(
     '/',
@@ -19,7 +19,7 @@ router.get(
 
 router.post(
     '/create',
-    multerProduct.any(),
+    multerUser.any(),
     userRegisterValidationRules(),
     async (req, res) => { 
         let errors = validationResult(req);
@@ -46,7 +46,7 @@ router.get(
 
 router.put(
     '/edit/:id',
-    multerProduct.any(),
+    multerUser.any(),
     userUpdateValidationRules(),
     async (req, res) => { 
         

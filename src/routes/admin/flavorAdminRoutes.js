@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { validationResult } = require('express-validator');
 const flavorAdminController = require('../../controllers/admin/flavorAdminController');
+const multerProducts = require('../../middlewares/multerProduct');
 
 router.get(
     '/',
@@ -11,6 +12,7 @@ router.get(
 
 router.get(
     '/create',
+    multerProducts.any(),
     flavorAdminController.create
 );
 
@@ -33,6 +35,7 @@ router.get(
 
 router.put(
     '/edit/:id',
+    multerProducts.any(),
     async (req, res) => { 
         flavorAdminController.update(req, res)    
     }

@@ -22,7 +22,7 @@
     <div class="py-5 container">
 
         <div class="col-md-12 d-flex justify-content-center">
-            <form action="/users/register" method="POST">
+            <form action="/users/register" method="POST" enctype="multipart/form-data">
                 
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre</label>
@@ -30,7 +30,7 @@
                            type="text" 
                            value="<%= (typeof old != 'undefined' && !firstName) ? old.firstName : '' %>"
                            class="form-control" 
-                           placeholder="John"
+                           placeholder="Jane"
                            id="firstName"
                            required>
                     <small style="color: red;"><%= (typeof error != 'undefined' && error.firstName) ? error.firstName.msg : '' %></small>
@@ -42,7 +42,7 @@
                            type="text"
                            value="<%= (typeof old != 'undefined' && !errors.lastName) ? old.lastName : '' %>" 
                            class="form-control" 
-                           placeholder="War"
+                           placeholder="Doe"
                            id="lastName"
                            required>
                     <small style="color: red;"><%= (typeof error != 'undefined' && error.lastName) ? error.lastName.msg : '' %></small>

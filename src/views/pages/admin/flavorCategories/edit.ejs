@@ -37,7 +37,7 @@
                         <% } %>
                     </ul>
                 <% }%>
-                <form action="/admin/flavorCategories/edit/<%= category.id %>?_method=PUT" method="POST" >
+                <form action="/admin/flavorCategories/edit/<%= category.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
@@ -61,7 +61,7 @@
                         <label for="photo" class="form-label">Foto</label>
                         
                         <div class="mb-3">
-                            <img src="<%= category.photo %>" alt="<%= category.name %>" width="200" height="200">
+                            <img src="/uploads/products/<%= category.photo %>" alt="<%= category.name %>" width="200" height="200">
                         </div>
                         <input name="photo" type="file" class="form-control-file" id="photo">
                         <small style="color: red;"><%= (typeof error != 'undefined' && error.photo) ? error.photo.msg : '' %></small>

@@ -20,7 +20,7 @@ module.exports = {
             name: req.body.name,
             flavoCategoryId: req.body.flavorCategoryId,
             description: req.body.description,
-            photo:  null,
+            photo:  (req.files != undefined) ? req.files[0].filename : 'no-image-available.jpeg',
             status: FLAVOR_ACTIVE
         }).then((flavor) => {
             res.redirect('/admin/flavors');
@@ -65,7 +65,7 @@ module.exports = {
                 var flavorDataUpdate = {};
                 flavorDataUpdate.name = req.body.name ? req.body.name : flavor.name;
                 flavorDataUpdate.description = req.body.description ? req.body.description : flavor.description;
-                flavorDataUpdate.photo = req.body.photo ? req.body.photo : flavor.photo,
+                flavorDataUpdate.photo = req.files[0].filename ? req.files[0].filename : flavor.photo,
                 flavorDataUpdate.status = req.body.status ? req.body.status : flavor.status
                 await db.Flavor.update(flavorDataUpdate, {
                     where: {

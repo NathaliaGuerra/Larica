@@ -17,7 +17,7 @@ module.exports = {
     store: async (req, res) => {
         await db.FlavorCategory.create({
             name: req.body.name,
-            photo:  req.file.filename,
+            photo:  (req.file != undefined) ? req.files[0].filename : 'no-image-available.jpeg',
             status: CATEGORY_ACTIVE
         }).then(() => {
             res.redirect('/admin/flavorCategories');
@@ -59,7 +59,7 @@ module.exports = {
             if(category) {
                 var categoryDataUpdate = {};
                 categoryDataUpdate.name = req.body.name ? req.body.name : category.name;
-                categoryDataUpdate.photo = req.body.photo ? req.body.photo : category.photo,
+                categoryDataUpdate.photo = req.files[0].filename ? req.files[0].filename : category.photo,
                 categoryDataUpdate.status = req.body.status ? req.body.status : category.status
                 await db.FlavorCategory.update(categoryDataUpdate, {
                     where: {

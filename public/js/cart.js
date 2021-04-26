@@ -19,7 +19,7 @@ if (localStorage == undefined || localStorage.cart == undefined || localStorage.
             showItems.innerHTML += `
                 <tr>
                     <td>
-                        <button type="button" class="btn btn-danger btn-sm">
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteCartItem(${x})">
                             <i class="bi bi-trash"></i>
                         </button>
                     </td>
@@ -32,3 +32,13 @@ if (localStorage == undefined || localStorage.cart == undefined || localStorage.
         totalPrice.innerHTML += ` ${total}`
     }
 }
+
+
+let shopping = document.getElementById("shopping");
+shopping.addEventListener("click", function() {
+
+    localStorage.removeItem("cart");
+    localStorage.removeItem("cartItemNumber");
+    location.reload();
+
+});

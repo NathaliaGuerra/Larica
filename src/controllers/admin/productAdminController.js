@@ -19,7 +19,7 @@ module.exports = {
             name: req.body.name,
             price: req.body.price,
             flavorLimit: req.body.flavorLimit,
-            photo:  (req.file != undefined) ? req.file.filename : '', 
+            photo:  (req.files != undefined) ? req.files[0].filename : 'no-image-available.jpeg', 
             status: PRODUCT_ACTIVE
         }).then((product) => {
             console.log(product);
@@ -64,7 +64,7 @@ module.exports = {
                 productDataUpdate.name = req.body.name ? req.body.name : product.name;
                 productDataUpdate.price = req.body.price ? req.body.price : product.price;
                 productDataUpdate.flavorLimit = req.body.flavorLimit ? req.body.flavorLimit : product.flavorLimit;
-                productDataUpdate.photo = req.file ? req.file.filename : product.photo,
+                productDataUpdate.photo = req.files ? req.files[0].filename : product.photo,
                 productDataUpdate.status = req.body.status ? req.body.status : product.status
                 await db.Product.update(productDataUpdate, {
                     where: {

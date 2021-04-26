@@ -90,11 +90,14 @@ window.addEventListener("load", function() {
 
         let cart = [];
         if (localStorage.getItem("cart") == undefined) {
+
             cart = new Array;
             let orderItem = localStorage.getItem("orderItem");
             cart.push(JSON.parse(orderItem));
             localStorage.setItem("cart",JSON.stringify(cart));
+            
         } else if (localStorage.getItem("cart") != undefined) {
+
             cart = JSON.parse(window.localStorage.getItem("cart"));
             let orderItem = JSON.parse(localStorage.getItem("orderItem"));
             cart.push(orderItem);

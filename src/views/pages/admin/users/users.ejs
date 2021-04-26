@@ -50,7 +50,7 @@
                     <tr>
                         <th scope="row"><%= users[i].id %></th>
                         <td class="d-none d-sm-none d-md-block">
-                            <img src="https://via.placeholder.com/60" alt="" class="bd-placeholder-img" width="60" height="60">
+                            <img src="/uploads/avatars/<%= users[i].avatar %>" alt="<%= users[i].firstName %>" class="bd-placeholder-img" width="60" height="60">
                         </td>
                         <td><%= users[i].firstName %> <%= users[i].lastName %></td>
                         <td class="d-none d-sm-none d-md-block"><%= users[i].email %></td>
