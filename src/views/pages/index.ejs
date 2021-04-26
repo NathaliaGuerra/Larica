@@ -115,9 +115,11 @@
 
             <% if(typeof categories != "undefined"){ %>
                 <% for( let i = 0; i < categories.length; i++){ %>
-                    <div class="col-lg-4">
-                        <img src="/uploads/products/<%=categories[i].photo %>" alt="<%=categories[i].name %>" class="bd-placeholder-img rounded-circle" width="200" height="200">
-                        <h2><%=categories[i].name %></h2>
+                    <div class="col-lg-4 categories">
+                        <a href="/products">
+                            <img src="/uploads/products/<%=categories[i].photo %>" alt="<%=categories[i].name %>" class="bd-placeholder-img rounded-circle" width="200" height="200">
+                            <h5><%=categories[i].name %></h5>
+                        </a>
                     </div><!-- /.col-lg-4 -->
                 <% } %>
             <% } %>
