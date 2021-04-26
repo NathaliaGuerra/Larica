@@ -17,13 +17,21 @@
         </div>
     </section>
 
+    <div class="row d-flex justify-content-center">
+        <% if(typeof error != "undefined") { %>
+            <div class="alert alert-secondary d-flex justify-content-center" role="alert">
+                <%= error %>
+              </div>
+        <% } %>
+    </div>
+
     <div class="py-5 container">
         <div class="col-md-12">
             <div class="row">
                 
                 <!-- ice cream sizes and categories -->
                 <div class="col-8">
-                    <form action="/store" method="POST" id="formStore" name="formStore">
+                    <form id="formStore" name="formStore">
                         <!-- sizes -->
                         <div class="container">
                             <div class="row" id="laricaProductSize">
@@ -40,8 +48,14 @@
                                                 <div class="d-flex justify-content-center">
                                                     <input type="radio"  class="form-check-input larica-product-size" value="<%= products[j].id %>" name="productSize" id="<%= products[j].id %>">
                                                     <label class="form-check-label" for="<%= products[j].id %>">
-                                                        <span class="d-flex justify-content-center"><%= products[j].name %></span>
-                                                        <br><span class="text-muted">Máximo de <span id="flavorLimit<%= products[j].id %>"><%= products[j].flavorLimit %></span> sabores</span>
+                                                        <span class="d-flex justify-content-center" id="productSizeName<%= products[j].id %>"><%= products[j].name %></span><br>
+                                                        <span class="text-muted">Máximo de <span id="flavorLimit<%= products[j].id %>"><%= products[j].flavorLimit %></span> sabores</span>
+                                                        <div class="d-flex justify-content-center">
+                                                            <h3>
+                                                                <span class="text-muted">$</span>
+                                                                <span id="productSizePrice<%= products[j].id %>"><%= products[j].price %></span>
+                                                            </h3>
+                                                        </div>
                                                     </label>
                                                 </div>
                                             </div>
@@ -70,7 +84,7 @@
                                                 <% if(flavors[x].flavorCategoryId === categories[i].id) { %>
                                                 <div class="form-check">
                                                     <input type="checkbox" name="flavorsSelected" class="form-check-input" value="<%= flavors[x].id %>" id="flavor<%= flavors[x].id %>">
-                                                    <label class="form-check-label" for="flavorId<%= flavors[x].id %>">
+                                                    <label class="form-check-label larica-flavor-name" for="flavorId<%= flavors[x].id %>" id="flavorName<%= flavors[x].id %>" >
                                                     <%= flavors[x].name %>
                                                     </label>
                                                 </div>
@@ -87,34 +101,30 @@
 
                         <div class="d-grid gap-2 col-6 mx-auto py-4">
                             <!-- <input type="button" name="Submit" class="btn btn-primary" value="Contar" onClick="contar();"> -->
-                            <button type="submit" class="btn btn-primary" id="shopButton">Agregar al carrito</button>
+                            <button type="submit" class="btn btn-primary" id="addOrderButton">Agregar al carrito</button>
                         </div>
                     </form>
                 </div> <!-- ice cream sizes and categories -->
                     
 
                 <!-- cart -->
-                <div class="col-4">
+                <div class="col-4" id="cartCard">
                     <div class="card">
-                        <table class="table">
-                            <tr>
-                                <td><p><small>Descripcion del producto</small></p></td>
-                                <td><p>650</p></td>
-                            </tr>
-                            <tr>
-                                <td><p><small>Descripcion del producto</small></p></td>
-                                <td><p>650</p></td>
-                            </tr>
+                        <table class="table" id="showOrderItems">
+                            
                         </table>
-                        <div class="card-body">
-                            <div class="card-subtitle mb-2 text-muted">
-                                <h6>Subtotal</h6>
+                        <p class="cartEmpty" style="text-align: center;"></p>
+                        <div class="row justify-content-between">
+                            <div class="col-4 justify-content-center">
+                                <h5 style="text-align: center;">Total</h5>
                             </div>
-                            <h5 class="card-title">Total</h5>
-                        </div>
+                            <div class="col-4">
+                                <h5 id="totalPrice" style="text-align: right; padding-right: 10px;"></h5>
+                            </div>
+                          </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="button">Comprar</button>
+                        <a class="btn btn-primary"  href="/store/cart" id="shopButton">Ir al Carrito</a>
                     </div>
                 </div> <!-- cart -->
             </div>

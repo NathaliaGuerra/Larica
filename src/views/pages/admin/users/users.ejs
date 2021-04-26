@@ -39,7 +39,7 @@
                         <th scope="col">#</th>
                         <th scope="col"></th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">correo</th>
+                        <th scope="col" class="d-none d-sm-none d-md-block">correo</th>
                         <th scope="col">Role</th>
                         <th scope="col"></th>
                     </tr>
@@ -49,11 +49,11 @@
                     <% for( let i = 0; i < users.length; i++ ) { %>
                     <tr>
                         <th scope="row"><%= users[i].id %></th>
-                        <td>
+                        <td class="d-none d-sm-none d-md-block">
                             <img src="https://via.placeholder.com/60" alt="" class="bd-placeholder-img" width="60" height="60">
                         </td>
                         <td><%= users[i].firstName %> <%= users[i].lastName %></td>
-                        <td><%= users[i].email %></td>
+                        <td class="d-none d-sm-none d-md-block"><%= users[i].email %></td>
                         <td><%= users[i].role %></td>
                         <td>
                             <!-- <a class="btn btn-sm btn-warning" href="/admin/users/<%= users[i].id %>">Ver</a> -->

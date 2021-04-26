@@ -19,9 +19,7 @@
     </section>
 
 
-    <div class="container car">
-        <% if(typeof order != "undefined") { %>
-            
+    <div class="container car">            
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -31,57 +29,21 @@
                     <th scope="col">Precio</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                    <th scope="row">1</th>
-                    <td>1Kg</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                    <th scope="row">1</th>
-                    <td>1Kg</td>
-                    <td>$100</td>        
-                </tr>
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                    <th scope="row">1</th>
-                    <td>1Kg</td>
-                    <td>$100</td>
-                </tr>
+                <tbody id="showItems">
+                
                 </tbody>
             </table>
-
+            <p class="cartEmpty" style="text-align: center;"></p>
             <div class="car-total">
                 
                 <div class="d-flex flex-row-reverse">
                     <div class="col-md-6 px-0 d-flex justify-content-end">
                         <table class="table">
                             <tbody>
-                                <tr>
-                                    <th scope="row">Sub-Total</th>
-                                    <td>$300</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">IVA</th>
-                                    <td>$30</td>
-                                </tr>
+
                                 <tr>
                                     <th scope="row">Total</th>
-                                    <td>$330</td>
+                                    <td style="text-align: right; padding-right: 10px;">$ <span id="totalPrice"></span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -98,57 +60,7 @@
                 <button type="reset" class="btn btn-outline-dark me-2">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </div>
-        <% } else { %>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">Acciones</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Precio</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        -
-                    </td>
-                    <th scope="row">-</th>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                </tbody>
-            </table>
-
-            <div class="car-total">
-                
-                <div class="d-flex flex-row-reverse">
-                    <div class="col-md-6 px-0 d-flex justify-content-end">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Sub-Total</th>
-                                    <td class="text-muted">$ 0</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">IVA</th>
-                                    <td class="text-muted">$ 0</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Total</th>
-                                    <td class="text-muted">$ 0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>Nathalia Guerra</h3>
-                        <p>Digital Street 1001, Belgrano, CABA, AR</p>
-                        <p>Pedido: #98765 | Fecha: 01-01-2021 19:01</p>
-                    </div>
-                </div>
-            </div>
-        <% } %>    
+       
 
 
     </div><!-- /.container -->
@@ -159,5 +71,6 @@
 
 <%- include('../../partials/footer.ejs') %>
 
+<script src="/js/cart.js"></script> 
 </body>
 </html>

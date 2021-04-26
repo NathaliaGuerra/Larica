@@ -29,7 +29,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col"></th>
+                        <th scope="col""></th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Limite de Sabores</th>
                         <th scope="col">Precio</th>
@@ -41,7 +41,7 @@
                     <% for( let i = 0; i < products.length; i++ ) { %>
                     <tr>
                         <th scope="row"><%= products[i].id %></th>
-                        <td>
+                        <td class="d-none d-sm-none d-md-block">
                             <img src="/images/<%= products[i].photo %>" alt="<%= products[i].name %>" class="bd-placeholder-img" width="60" height="60">
                         </td>
                         <td><%= products[i].name %></td>
