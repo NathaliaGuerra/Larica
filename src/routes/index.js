@@ -22,6 +22,8 @@ const flavorAdminRouter = require('./admin/flavorAdminRoutes');
 // API Require files
 const userApiRouter = require('./api/userApiRoutes');
 const productApiRouter = require('./api/productApiRoutes');
+const flavorApiRouter = require('./api/flavorApiRoutes');
+const flavorCategoryApiRouter = require('./api/flavorCategoryApiRoutes');
 
 // <<<<----- <> ----->>>>>
 
@@ -46,5 +48,7 @@ router.use('/admin/flavors', flavorAdminRouter);
 // API routes
 router.use('/api/users', userApiRouter);
 router.use('/api/products', productApiRouter);
+router.use('/api/flavors', flavorApiRouter);
+router.use('/api/flavorCategories', flavorCategoryApiRouter);
 
 module.exports = router;
