@@ -9,18 +9,21 @@ module.exports = {
         await db.FlavorCategory.findAll({
             attributes: ["id", 'name', 'photo', "status"]
             }).then(async function (flavorCategories) {
+
+                let flavors = await db.Flavor.findAll();
+
                 for (let i = 0; i < flavorCategories.length; i++) {
+                    flavorCategories[i].setDataValue(ENDPOINT, `${PATH_API_FLAVORCATEGORY}${flavorCategories[i].id}`);
+                    flavorCategories[i].photo = `${PATH_URL_PHOTO_PRODUCTS}${flavorCategories[i].photo}`;
 
-                    let flavors = await db.Flavor.findAll({
-                        where: {
-                            flavorCategoryId : flavorCategories[i].id
+                    let countByCategory = 0;
+
+                    for (let j = 0; j < flavors.length; j++) {
+                        if (flavorCategories[i].id == flavors[j].flavorCategoryId){
+                            countByCategory = countByCategory + 1;
                         }
-                    });
-                    console.log(flavors)
-
-                    flavorCategories[i].setDataValue(ENDPOINT, `${PATH_API_FLAVORCATEGORY}${flavorCategories[i].id}`),
-                    flavorCategories[i].photo = `${PATH_URL_PHOTO_PRODUCTS}${flavorCategories[i].photo}`,
-                    flavorCategories[i].setDataValue('countByCategory', flavors.length)
+                    }
+                    flavorCategories[i].setDataValue('countByCategory', countByCategory);
                 }
 
                 let response = {
