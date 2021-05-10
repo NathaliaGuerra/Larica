@@ -1,7 +1,7 @@
 const db = require('../../database/models/index');
 const ENDPOINT = "endpoint";
 const PATH_API_USERS = "/api/users/";
-const PATH_URL_AVATAR = "/uploads/users/";
+const PATH_URL_AVATAR = "/uploads/avatars/";
 
 module.exports = {
 
