@@ -7,7 +7,7 @@ module.exports = {
 
     index: async (req, res) => {
         await db.User.findAll({
-            attributes: ["id", 'firstName', 'lastName', "email", "avatar"]
+            attributes: ["id", 'firstName', 'lastName', "email", "avatar", "role"]
             }).then(function (users) {
                 for (let i = 0; i < users.length; i++) {
                     users[i].setDataValue(ENDPOINT, `${PATH_API_USERS}${users[i].id}`),
@@ -32,7 +32,7 @@ module.exports = {
 
     show:  async (req, res) => {
         await db.User.findByPk(req.params.id, {
-            attributes: ["id", 'firstName', 'lastName', "email", "avatar"] 
+            attributes: ["id", 'firstName', 'lastName', "email", "avatar", "role"] 
         })
         .then((user) =>{
             user.avatar = `${PATH_URL_AVATAR}${user.avatar}`; 
@@ -45,7 +45,7 @@ module.exports = {
 
     latestUser: async (req, res) => {
         await db.User.findAll({
-            attributes: ["id", 'firstName', 'lastName', "email", "avatar", "createdAt", "updatedAt"],
+            attributes: ["id", 'firstName', 'lastName', "email", "avatar", "role", "createdAt", "updatedAt"],
             order: [
                 ["createdAt", "DESC"]
             ],
