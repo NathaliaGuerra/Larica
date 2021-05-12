@@ -2,10 +2,10 @@
 
 
 ## Temática del sitio:
-Tienda de helados artesanales de diversos sabores e inusuales combinaciones.
+Tienda de helados artesanales de diversos sabores.
 
 ## Público Objetivo: 
-Personas de todas las edades amantes del helado y las nuevas experiencias, ofrecemos desde los sabores más clásicos a las mezclas más intrépidas. El tema musical apela a los amantes del soul, del jazz y el rock & roll. 
+Personas de todas las edades amantes del helado y las nuevas experiencias.
 
 Helados y buenas vibras.
 
@@ -35,7 +35,7 @@ Helados y buenas vibras.
 git clone https://github.com/NathaliaGuerra/Larica.git
 ```
 
-- Instalar las deoendencias de node.
+- Instalar las dependencias de node.
 
 ```
 npm install ó npm i
@@ -50,5 +50,5 @@ npm start
 - Abrir el navegador con las direcciónes
 
 ```
-localhost:3000
+localhost:3003
 ```
